@@ -14,9 +14,9 @@ const Footer = () => {
           © {new Date().getFullYear()} WeDiet. Todos os direitos reservados.
         </p>
         <div className="flex gap-6">
-          <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacidade</a>
-          <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Termos</a>
-          <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contato</a>
+          <a href="/politica-de-privacidade.html" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Política de Privacidade</a>
+          <a href="/termos-de-uso.html" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Termos de Uso</a>
+          <a href="mailto:leosantos.rib@gmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contato</a>
         </div>
       </div>
     </footer>
