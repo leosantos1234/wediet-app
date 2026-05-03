@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
       <div className="container flex items-center justify-between h-16">
-        <a href="#" className="inline-flex items-center gap-2 text-xl font-extrabold text-gradient">
+        <a href="#" className="inline-flex items-center gap-2 text-2xl font-extrabold text-gradient">
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
             <Leaf className="h-4 w-4" />
           </span>
