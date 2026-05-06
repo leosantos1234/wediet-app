@@ -20,7 +20,7 @@ const Navbar = () => {
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
             <Leaf className="h-4 w-4" />
           </span>
-          WeDiet
+          NuDiet
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -65,6 +65,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 

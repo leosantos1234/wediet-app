@@ -9,11 +9,11 @@ import {
 const faqs = [
   {
     q: "É difícil de usar?",
-    a: "De forma alguma. O WeDiet foi feito para nutricionistas, não para engenheiros. A maioria dos usuários configura tudo em menos de 10 minutos com nosso onboarding guiado.",
+    a: "De forma alguma. O NuDiet foi feito para nutricionistas, não para engenheiros. A maioria dos usuários configura tudo em menos de 10 minutos com nosso onboarding guiado.",
   },
   {
     q: "Substitui o nutricionista?",
-    a: "Absolutamente não. O WeDiet cuida das tarefas repetitivas — captação de leads, follow-ups, agendamento — para que você foque no que importa: seus pacientes.",
+    a: "Absolutamente não. O NuDiet cuida das tarefas repetitivas — captação de leads, follow-ups, agendamento — para que você foque no que importa: seus pacientes.",
   },
   {
     q: "Como a IA funciona?",
@@ -72,6 +72,7 @@ const FaqSection = () => {
 };
 
 export default FaqSection;
+
 
 
 

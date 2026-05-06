@@ -12,7 +12,7 @@ const tabs = [
     id: "diferenciais",
     label: "Diferenciais",
     icon: Sparkles,
-    title: "Veja por que o WeDiet é o melhor:",
+    title: "Veja por que o NuDiet é o melhor:",
     items: [
       { icon: MessageSquare, text: "Integração com WhatsApp" },
       { icon: Bot, text: "Assistente IA — otimize planos alimentares" },
@@ -137,6 +137,7 @@ const FeaturesTabsSection = () => {
 };
 
 export default FeaturesTabsSection;
+
 
 
 

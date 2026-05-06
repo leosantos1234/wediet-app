@@ -1,17 +1,17 @@
-# Política de Privacidade – WeDiet
+﻿# PolÃ­tica de Privacidade â€“ NuDiet
 
-**Última atualização:** [DATA]
+**Ãšltima atualizaÃ§Ã£o:** [DATA]
 
-A **WeDiet** é operada por **[SEU NOME COMPLETO]** (“Controlador(a)”, “nós”).  
-Esta Política de Privacidade explica como coletamos, usamos, armazenamos, compartilhamos e protegemos dados pessoais no uso do aplicativo WeDiet (“App”), em conformidade com a legislação aplicável, incluindo a LGPD (Lei nº 13.709/2018), quando aplicável.
+A **NuDiet** Ã© operada por **[SEU NOME COMPLETO]** (â€œControlador(a)â€, â€œnÃ³sâ€).  
+Esta PolÃ­tica de Privacidade explica como coletamos, usamos, armazenamos, compartilhamos e protegemos dados pessoais no uso do aplicativo NuDiet (â€œAppâ€), em conformidade com a legislaÃ§Ã£o aplicÃ¡vel, incluindo a LGPD (Lei nÂº 13.709/2018), quando aplicÃ¡vel.
 
 ## 1. Quem somos
 
 Controlador(a): **[SEU NOME COMPLETO]**  
-Nome do produto/app: **WeDiet**  
+Nome do produto/app: **NuDiet**  
 E-mail de privacidade: **[EMAIL_PRIVACIDADE]**  
 E-mail de suporte: **[EMAIL_SUPORTE]**  
-Endereço para contato: **[ENDERECO_CONTATO]**
+EndereÃ§o para contato: **[ENDERECO_CONTATO]**
 
 ## 2. Dados que coletamos
 
@@ -20,21 +20,21 @@ Podemos coletar os seguintes tipos de dados, conforme as funcionalidades utiliza
 1. Dados de cadastro e conta
 - Nome
 - E-mail
-- Telefone (se aplicável)
-- Senha (armazenada de forma protegida pelo provedor de autenticação)
+- Telefone (se aplicÃ¡vel)
+- Senha (armazenada de forma protegida pelo provedor de autenticaÃ§Ã£o)
 
 2. Dados de uso e dispositivo
 - Identificadores do dispositivo e do app
-- Sistema operacional, versão do app, idioma, fuso
+- Sistema operacional, versÃ£o do app, idioma, fuso
 - Logs de acesso, data/hora, telas acessadas, eventos de uso
 
-3. Dados de saúde e bem-estar (quando você informa ou autoriza)
-- Informações nutricionais e alimentares
-- Metas e registros de hábitos
-- Dados de atividade física e sono (quando integrados com Health Connect/serviços equivalentes)
+3. Dados de saÃºde e bem-estar (quando vocÃª informa ou autoriza)
+- InformaÃ§Ãµes nutricionais e alimentares
+- Metas e registros de hÃ¡bitos
+- Dados de atividade fÃ­sica e sono (quando integrados com Health Connect/serviÃ§os equivalentes)
 - Dados relacionados a acompanhamento nutricional
 
-4. Dados de comunicação
+4. Dados de comunicaÃ§Ã£o
 - Mensagens enviadas ao suporte
 - Respostas a pesquisas e feedbacks
 
@@ -43,102 +43,103 @@ Podemos coletar os seguintes tipos de dados, conforme as funcionalidades utiliza
 Usamos os dados para:
 
 - Criar e gerenciar sua conta
-- Entregar funcionalidades do App (metas, diário, acompanhamento, relatórios)
-- Personalizar sua experiência
-- Permitir integrações de saúde autorizadas por você
-- Melhorar desempenho, estabilidade e segurança
+- Entregar funcionalidades do App (metas, diÃ¡rio, acompanhamento, relatÃ³rios)
+- Personalizar sua experiÃªncia
+- Permitir integraÃ§Ãµes de saÃºde autorizadas por vocÃª
+- Melhorar desempenho, estabilidade e seguranÃ§a
 - Prevenir fraudes e abuso
-- Cumprir obrigações legais/regulatórias
-- Atender solicitações de suporte e exercício de direitos
+- Cumprir obrigaÃ§Ãµes legais/regulatÃ³rias
+- Atender solicitaÃ§Ãµes de suporte e exercÃ­cio de direitos
 
-## 4. Bases legais (quando aplicável)
+## 4. Bases legais (quando aplicÃ¡vel)
 
-Tratamos dados com base em uma ou mais hipóteses legais, incluindo:
+Tratamos dados com base em uma ou mais hipÃ³teses legais, incluindo:
 
-- Execução de contrato (prestação do serviço do App)
-- Consentimento (especialmente para dados sensíveis e integrações opcionais)
-- Legítimo interesse (melhoria, segurança e prevenção de fraudes)
-- Cumprimento de obrigação legal/regulatória
-- Exercício regular de direitos
+- ExecuÃ§Ã£o de contrato (prestaÃ§Ã£o do serviÃ§o do App)
+- Consentimento (especialmente para dados sensÃ­veis e integraÃ§Ãµes opcionais)
+- LegÃ­timo interesse (melhoria, seguranÃ§a e prevenÃ§Ã£o de fraudes)
+- Cumprimento de obrigaÃ§Ã£o legal/regulatÃ³ria
+- ExercÃ­cio regular de direitos
 
 ## 5. Compartilhamento de dados
 
 Podemos compartilhar dados com:
 
-- Prestadores de serviço de infraestrutura (hospedagem, banco de dados, analytics, monitoramento de erros)
-- Ferramentas de comunicação e suporte
-- Profissionais/parceiros vinculados ao seu atendimento, quando aplicável e autorizado
-- Autoridades públicas, quando houver obrigação legal
+- Prestadores de serviÃ§o de infraestrutura (hospedagem, banco de dados, analytics, monitoramento de erros)
+- Ferramentas de comunicaÃ§Ã£o e suporte
+- Profissionais/parceiros vinculados ao seu atendimento, quando aplicÃ¡vel e autorizado
+- Autoridades pÃºblicas, quando houver obrigaÃ§Ã£o legal
 
-Não vendemos dados pessoais.
+NÃ£o vendemos dados pessoais.
 
-## 6. Transferência internacional
+## 6. TransferÃªncia internacional
 
 Alguns fornecedores podem processar dados fora do Brasil.  
-Nesses casos, adotamos medidas para proteger os dados e exigir padrões adequados de segurança e privacidade.
+Nesses casos, adotamos medidas para proteger os dados e exigir padrÃµes adequados de seguranÃ§a e privacidade.
 
-## 7. Retenção e descarte
+## 7. RetenÃ§Ã£o e descarte
 
-Armazenamos dados somente pelo tempo necessário para:
+Armazenamos dados somente pelo tempo necessÃ¡rio para:
 
-- Cumprir as finalidades desta Política
-- Atender exigências legais, regulatórias e auditorias
+- Cumprir as finalidades desta PolÃ­tica
+- Atender exigÃªncias legais, regulatÃ³rias e auditorias
 - Exercer direitos em processos administrativos/judiciais
 
-Após esse período, os dados são excluídos ou anonimizados, quando tecnicamente possível.
+ApÃ³s esse perÃ­odo, os dados sÃ£o excluÃ­dos ou anonimizados, quando tecnicamente possÃ­vel.
 
-## 8. Segurança da informação
+## 8. SeguranÃ§a da informaÃ§Ã£o
 
-Adotamos medidas técnicas e administrativas razoáveis para proteger os dados, como:
+Adotamos medidas tÃ©cnicas e administrativas razoÃ¡veis para proteger os dados, como:
 
 - Controle de acesso
-- Criptografia em trânsito (HTTPS/TLS)
-- Monitoramento e registros de segurança
-- Boas práticas de desenvolvimento e armazenamento
+- Criptografia em trÃ¢nsito (HTTPS/TLS)
+- Monitoramento e registros de seguranÃ§a
+- Boas prÃ¡ticas de desenvolvimento e armazenamento
 
-Nenhum sistema é 100% inviolável, mas trabalhamos para reduzir riscos continuamente.
+Nenhum sistema Ã© 100% inviolÃ¡vel, mas trabalhamos para reduzir riscos continuamente.
 
 ## 9. Direitos do titular
 
-Você pode solicitar, conforme a lei aplicável:
+VocÃª pode solicitar, conforme a lei aplicÃ¡vel:
 
-- Confirmação do tratamento
+- ConfirmaÃ§Ã£o do tratamento
 - Acesso aos dados
-- Correção de dados incompletos/inexatos
-- Anonimização, bloqueio ou eliminação
+- CorreÃ§Ã£o de dados incompletos/inexatos
+- AnonimizaÃ§Ã£o, bloqueio ou eliminaÃ§Ã£o
 - Portabilidade
-- Informação sobre compartilhamentos
-- Revogação de consentimento (quando aplicável)
-- Eliminação de dados tratados com consentimento (salvo hipóteses legais de retenção)
+- InformaÃ§Ã£o sobre compartilhamentos
+- RevogaÃ§Ã£o de consentimento (quando aplicÃ¡vel)
+- EliminaÃ§Ã£o de dados tratados com consentimento (salvo hipÃ³teses legais de retenÃ§Ã£o)
 
 Para exercer seus direitos, entre em contato: **[EMAIL_PRIVACIDADE]**.
 
-## 10. Exclusão de conta e dados
+## 10. ExclusÃ£o de conta e dados
 
-Você pode solicitar a exclusão da sua conta e dados pessoais pelo e-mail **[EMAIL_PRIVACIDADE]** com o assunto “Exclusão de Conta – WeDiet”.
+VocÃª pode solicitar a exclusÃ£o da sua conta e dados pessoais pelo e-mail **[EMAIL_PRIVACIDADE]** com o assunto â€œExclusÃ£o de Conta â€“ NuDietâ€.
 
-Podemos manter dados mínimos necessários para cumprimento de obrigações legais, prevenção de fraude e defesa de direitos.
+Podemos manter dados mÃ­nimos necessÃ¡rios para cumprimento de obrigaÃ§Ãµes legais, prevenÃ§Ã£o de fraude e defesa de direitos.
 
-## 11. Crianças e adolescentes
+## 11. CrianÃ§as e adolescentes
 
-O App não é destinado a crianças sem supervisão de responsável legal.  
-Se identificarmos tratamento indevido de dados de menores em desacordo com a lei, adotaremos as medidas cabíveis, incluindo exclusão.
+O App nÃ£o Ã© destinado a crianÃ§as sem supervisÃ£o de responsÃ¡vel legal.  
+Se identificarmos tratamento indevido de dados de menores em desacordo com a lei, adotaremos as medidas cabÃ­veis, incluindo exclusÃ£o.
 
 ## 12. Cookies e tecnologias similares
 
-Quando aplicável em site/landing page, podemos usar cookies e tecnologias similares para funcionamento, métricas e melhoria de experiência.  
-Você pode gerenciar preferências no navegador/dispositivo.
+Quando aplicÃ¡vel em site/landing page, podemos usar cookies e tecnologias similares para funcionamento, mÃ©tricas e melhoria de experiÃªncia.  
+VocÃª pode gerenciar preferÃªncias no navegador/dispositivo.
 
-## 13. Alterações desta Política
+## 13. AlteraÃ§Ãµes desta PolÃ­tica
 
-Podemos atualizar esta Política periodicamente.  
-A versão vigente estará sempre disponível em: **[URL_HTTPS_DA_POLITICA]**.  
-Em caso de mudanças relevantes, poderemos avisar por meios apropriados no App.
+Podemos atualizar esta PolÃ­tica periodicamente.  
+A versÃ£o vigente estarÃ¡ sempre disponÃ­vel em: **[URL_HTTPS_DA_POLITICA]**.  
+Em caso de mudanÃ§as relevantes, poderemos avisar por meios apropriados no App.
 
 ## 14. Contato
 
-Dúvidas sobre privacidade ou solicitações de titulares:
+DÃºvidas sobre privacidade ou solicitaÃ§Ãµes de titulares:
 
 - E-mail de privacidade: **[EMAIL_PRIVACIDADE]**
 - E-mail de suporte: **[EMAIL_SUPORTE]**
-- Responsável: **[SEU NOME COMPLETO]**
+- ResponsÃ¡vel: **[SEU NOME COMPLETO]**
+

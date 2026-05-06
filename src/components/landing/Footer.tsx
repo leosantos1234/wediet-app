@@ -8,10 +8,10 @@ const Footer = () => {
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
             <Leaf className="h-4 w-4" />
           </span>
-          WeDiet
+          NuDiet
         </div>
         <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} WeDiet. Todos os direitos reservados.
+          © {new Date().getFullYear()} NuDiet. Todos os direitos reservados.
         </p>
         <div className="flex gap-6">
           <a href="/politica-de-privacidade.html" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Política de Privacidade</a>
@@ -24,5 +24,6 @@ const Footer = () => {
 };
 
 export default Footer;
+
 
 

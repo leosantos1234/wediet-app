@@ -25,7 +25,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-base md:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed">
-              O WeDiet facilita sua rotina, automatiza a captação de leads, 
+              O NuDiet facilita sua rotina, automatiza a captação de leads, 
               qualifica com IA e converte em consultas — tudo em uma única plataforma.
             </p>
 
@@ -63,7 +63,7 @@ const HeroSection = () => {
           >
             <img
               src={heroImage}
-              alt="Nutricionista profissional usando o WeDiet"
+              alt="Nutricionista profissional usando o NuDiet"
               className="w-full rounded-tl-3xl object-cover"
               width={1200}
               height={800}
@@ -76,7 +76,7 @@ const HeroSection = () => {
             >
               <img
                 src={mobileMockup}
-                alt="App do paciente WeDiet"
+                alt="App do paciente NuDiet"
                 className="w-full rounded-2xl shadow-2xl"
                 loading="lazy"
                 width={600}
@@ -101,6 +101,7 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
 
 
 

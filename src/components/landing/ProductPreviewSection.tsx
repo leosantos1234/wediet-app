@@ -31,7 +31,7 @@ const ProductPreviewSection = () => {
           >
             <img
               src={dashboardMockup}
-              alt="WeDiet desktop dashboard with patient analytics"
+              alt="NuDiet desktop dashboard with patient analytics"
               className="w-full"
               loading="lazy"
               width={1440}
@@ -50,7 +50,7 @@ const ProductPreviewSection = () => {
             <div className="w-64 md:w-72 animate-float">
               <img
                 src={mobileMockup}
-                alt="WeDiet mobile app showing meal plans and patient progress"
+                alt="NuDiet mobile app showing meal plans and patient progress"
                 className="w-full rounded-3xl shadow-xl"
                 loading="lazy"
                 width={600}
@@ -65,6 +65,7 @@ const ProductPreviewSection = () => {
 };
 
 export default ProductPreviewSection;
+
 
 
 

@@ -45,7 +45,7 @@ const PlansPage = () => {
   return (
     <main className="min-h-screen py-12 px-4">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-3xl font-bold mb-2">Planos WeDiet</h1>
+        <h1 className="text-3xl font-bold mb-2">Planos NuDiet</h1>
         <p className="text-muted-foreground mb-8">Assine um plano mensal e libere todos os recursos.</p>
 
         {plansQuery.isLoading && <p>Carregando planos...</p>}
@@ -99,6 +99,7 @@ const PlansPage = () => {
 };
 
 export default PlansPage;
+
 
 
 

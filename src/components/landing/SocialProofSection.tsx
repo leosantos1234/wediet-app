@@ -9,7 +9,7 @@ const metrics = [
 
 const testimonials = [
   {
-    quote: "O WeDiet triplicou minha base de pacientes em apenas 3 meses. A automação de leads é incrível.",
+    quote: "O NuDiet triplicou minha base de pacientes em apenas 3 meses. A automação de leads é incrível.",
     name: "Dra. Ana Silva",
     role: "Nutricionista Clínica",
   },
@@ -69,6 +69,7 @@ const SocialProofSection = () => {
 };
 
 export default SocialProofSection;
+
 
 
 

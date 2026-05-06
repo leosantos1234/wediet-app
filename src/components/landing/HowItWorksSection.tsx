@@ -33,7 +33,7 @@ const HowItWorksSection = () => {
             De lead a paciente em <span className="text-gradient">3 passos simples</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Pare de correr atrás de leads manualmente. Deixe o WeDiet automatizar todo o seu funil.
+            Pare de correr atrás de leads manualmente. Deixe o NuDiet automatizar todo o seu funil.
           </p>
         </motion.div>
 
@@ -68,6 +68,7 @@ const HowItWorksSection = () => {
 };
 
 export default HowItWorksSection;
+
 
 
 

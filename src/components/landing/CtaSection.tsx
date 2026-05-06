@@ -20,7 +20,7 @@ const CtaSection = () => {
               Pronto para crescer seu consultório?
             </h2>
             <p className="text-primary-foreground/80 max-w-lg mx-auto mb-8 text-lg">
-              Junte-se a centenas de nutricionistas que já usam o WeDiet para converter mais leads e entregar melhores resultados.
+              Junte-se a centenas de nutricionistas que já usam o NuDiet para converter mais leads e entregar melhores resultados.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" variant="secondary" className="text-base px-8 h-12 gap-2 font-semibold rounded-full">
@@ -38,6 +38,7 @@ const CtaSection = () => {
 };
 
 export default CtaSection;
+
 
 
 
