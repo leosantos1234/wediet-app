@@ -68,9 +68,9 @@ const SignupFree = () => {
         >
           Voltar aos planos
         </button>
-        <h1 className="mt-4 text-3xl font-extrabold">Plano Starter Grátis</h1>
+        <h1 className="mt-4 text-3xl font-extrabold">Teste grátis por 30 dias</h1>
         <p className="mt-2 text-muted-foreground">
-          Preencha os dados para criar sua conta de teste zerada e começar agora.
+          Preencha os dados para criar sua conta de teste por 30 dias, sem custo, e começar agora.
         </p>
 
         <form className="mt-8 space-y-4" onSubmit={onSubmit}>
@@ -137,7 +137,7 @@ const SignupFree = () => {
             disabled={!canSubmit}
             className="w-full rounded-xl bg-primary px-4 py-3 font-semibold text-primary-foreground disabled:opacity-50"
           >
-            {submitting ? "Criando sua conta..." : "Criar conta grátis"}
+            {submitting ? "Criando sua conta..." : "Começar teste grátis de 30 dias"}
           </button>
         </form>
       </div>
