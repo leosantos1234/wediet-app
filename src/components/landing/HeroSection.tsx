@@ -1,6 +1,7 @@
 ﻿import { motion } from "framer-motion";
 import { ArrowRight, Play, Monitor, Apple, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-nutritionist.jpg";
 import mobileMockup from "@/assets/mobile-mockup.jpg";
 
@@ -45,8 +46,10 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-start gap-3">
-              <Button size="lg" className="text-base px-8 h-12 gap-2 rounded-full">
-                Experimente grátis agora <ArrowRight className="h-4 w-4" />
+              <Button asChild size="lg" className="text-base px-8 h-12 gap-2 rounded-full">
+                <Link to="/plans">
+                  Experimente grátis agora <ArrowRight className="h-4 w-4" />
+                </Link>
               </Button>
               <Button variant="outline" size="lg" className="text-base px-8 h-12 gap-2 rounded-full">
                 <Play className="h-4 w-4" /> Agendar demo
@@ -101,6 +104,8 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
+
 
 
 

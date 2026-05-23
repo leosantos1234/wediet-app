@@ -1,7 +1,8 @@
-import { useState } from "react";
+Ôªøimport { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { label: "Ferramentas", href: "#features" },
@@ -42,8 +43,8 @@ const Navbar = () => {
           <Button asChild variant="ghost" size="sm">
             <a href="https://app.nudiet.com.br/login">Login</a>
           </Button>
-          <Button size="sm" className="rounded-full">
-            Experimentar gr·tis
+          <Button asChild size="sm" className="rounded-full">
+            <Link to="/plans">Experimentar gr√°tis</Link>
           </Button>
         </div>
 
@@ -74,8 +75,8 @@ const Navbar = () => {
               <Button asChild variant="ghost" size="sm" className="w-full">
                 <a href="https://app.nudiet.com.br/login">Login</a>
               </Button>
-              <Button size="sm" className="w-full mt-2 rounded-full">
-                Experimentar gr·tis
+              <Button asChild size="sm" className="w-full mt-2 rounded-full">
+                <Link to="/plans">Experimentar gr√°tis</Link>
               </Button>
             </div>
           </motion.div>
@@ -86,3 +87,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

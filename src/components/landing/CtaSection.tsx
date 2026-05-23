@@ -1,6 +1,7 @@
 ﻿import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const CtaSection = () => {
   return (
@@ -23,8 +24,10 @@ const CtaSection = () => {
               Junte-se a centenas de nutricionistas que já usam o NuDiet para converter mais leads e entregar melhores resultados.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" variant="secondary" className="text-base px-8 h-12 gap-2 font-semibold rounded-full">
-                Experimente grátis agora <ArrowRight className="h-4 w-4" />
+              <Button asChild size="lg" variant="secondary" className="text-base px-8 h-12 gap-2 font-semibold rounded-full">
+                <Link to="/plans">
+                  Experimente grátis agora <ArrowRight className="h-4 w-4" />
+                </Link>
               </Button>
               <Button size="lg" variant="ghost" className="text-base px-8 h-12 text-primary-foreground hover:bg-primary-foreground/10 rounded-full">
                 Agendar demo
@@ -38,6 +41,8 @@ const CtaSection = () => {
 };
 
 export default CtaSection;
+
+
 
 
 
