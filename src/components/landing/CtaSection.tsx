@@ -1,7 +1,6 @@
 ﻿import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const CtaSection = () => {
   return (
@@ -25,9 +24,9 @@ const CtaSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg" variant="secondary" className="text-base px-8 h-12 gap-2 font-semibold rounded-full">
-                <Link to="/plans">
+                <a href="/#pricing">
                   Experimente grátis agora <ArrowRight className="h-4 w-4" />
-                </Link>
+                </a>
               </Button>
               <Button size="lg" variant="ghost" className="text-base px-8 h-12 text-primary-foreground hover:bg-primary-foreground/10 rounded-full">
                 Agendar demo
@@ -41,6 +40,7 @@ const CtaSection = () => {
 };
 
 export default CtaSection;
+
 
 
 

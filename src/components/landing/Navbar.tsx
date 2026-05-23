@@ -2,7 +2,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const navLinks = [
   { label: "Ferramentas", href: "#features" },
@@ -44,7 +43,7 @@ const Navbar = () => {
             <a href="https://app.nudiet.com.br/login">Login</a>
           </Button>
           <Button asChild size="sm" className="rounded-full">
-            <Link to="/plans">Experimentar grátis</Link>
+            <a href="/#pricing">Experimentar grátis</a>
           </Button>
         </div>
 
@@ -76,7 +75,7 @@ const Navbar = () => {
                 <a href="https://app.nudiet.com.br/login">Login</a>
               </Button>
               <Button asChild size="sm" className="w-full mt-2 rounded-full">
-                <Link to="/plans">Experimentar grátis</Link>
+                <a href="/#pricing">Experimentar grátis</a>
               </Button>
             </div>
           </motion.div>
@@ -87,4 +86,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
 
