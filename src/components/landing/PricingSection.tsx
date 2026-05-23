@@ -3,6 +3,9 @@ import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+const WHATSAPP_SALES_URL =
+  "https://wa.me/5511999999999?text=Olá%2C%20quero%20falar%20sobre%20o%20plano%20Premium%20da%20NuDiet";
+
 const plans = [
   {
     name: "Starter",
@@ -17,6 +20,7 @@ const plans = [
     ],
     cta: "Começar grátis",
     featured: false,
+    actionUrl: "/signup-free",
   },
   {
     name: "Profissional",
@@ -34,6 +38,7 @@ const plans = [
     cta: "Experimente grátis",
     featured: true,
     badge: "Mais popular",
+    actionUrl: "/signup-free",
   },
   {
     name: "Premium",
@@ -50,6 +55,7 @@ const plans = [
     ],
     cta: "Fale com vendas",
     featured: false,
+    actionUrl: WHATSAPP_SALES_URL,
   },
 ];
 
@@ -104,9 +110,15 @@ const PricingSection = () => {
                 className={`w-full rounded-full mb-6 ${plan.featured ? "" : ""}`}
                 variant={plan.featured ? "default" : "outline"}
               >
-                <Link to="/plans">
-                  {plan.cta} {plan.featured && <ArrowRight className="h-4 w-4 ml-1" />}
-                </Link>
+                {plan.actionUrl.startsWith("http") ? (
+                  <a href={plan.actionUrl} target="_blank" rel="noreferrer">
+                    {plan.cta} {plan.featured && <ArrowRight className="h-4 w-4 ml-1" />}
+                  </a>
+                ) : (
+                  <Link to={plan.actionUrl}>
+                    {plan.cta} {plan.featured && <ArrowRight className="h-4 w-4 ml-1" />}
+                  </Link>
+                )}
               </Button>
 
               <ul className="space-y-3">
