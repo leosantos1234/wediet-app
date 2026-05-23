@@ -1,4 +1,4 @@
-Ôªøimport { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,10 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
       <div className="container flex items-center justify-between h-16">
-        <a href="#" className="inline-flex items-center gap-2 text-2xl font-extrabold text-gradient">
+        <a
+          href="#"
+          className="inline-flex items-center gap-2 text-2xl font-extrabold text-gradient"
+        >
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
             <Leaf className="h-4 w-4" />
           </span>
@@ -25,7 +28,11 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
               {link.label}
             </a>
           ))}
@@ -33,9 +40,11 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-3">
           <Button asChild variant="ghost" size="sm">
-            <a href="https://nutriflow-care.onrender.com/login">Login</a>
+            <a href="https://app.nudiet.com.br/login">Login</a>
           </Button>
-          <Button size="sm" className="rounded-full">Experimentar gr√°tis</Button>
+          <Button size="sm" className="rounded-full">
+            Experimentar gr·tis
+          </Button>
         </div>
 
         <button className="md:hidden" onClick={() => setOpen(!open)}>
@@ -53,11 +62,21 @@ const Navbar = () => {
           >
             <div className="container py-4 flex flex-col gap-3">
               {navLinks.map((link) => (
-                <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="text-sm text-muted-foreground py-2">
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm text-muted-foreground py-2"
+                >
                   {link.label}
                 </a>
               ))}
-              <Button size="sm" className="w-full mt-2 rounded-full">Experimentar gr√°tis</Button>
+              <Button asChild variant="ghost" size="sm" className="w-full">
+                <a href="https://app.nudiet.com.br/login">Login</a>
+              </Button>
+              <Button size="sm" className="w-full mt-2 rounded-full">
+                Experimentar gr·tis
+              </Button>
             </div>
           </motion.div>
         )}
@@ -67,7 +86,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-

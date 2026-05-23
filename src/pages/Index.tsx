@@ -9,6 +9,7 @@ import PricingSection from "@/components/landing/PricingSection";
 import CtaSection from "@/components/landing/CtaSection";
 import FaqSection from "@/components/landing/FaqSection";
 import Footer from "@/components/landing/Footer";
+import SupportWidget from "@/components/landing/SupportWidget";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <CtaSection />
       <FaqSection />
       <Footer />
+      <SupportWidget />
     </div>
   );
 };
