@@ -1,4 +1,4 @@
-import { FormEvent, useMemo, useState } from "react";
+﻿import { FormEvent, useMemo, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { signupTrialFree } from "@/lib/trialApi";
@@ -68,9 +68,9 @@ const SignupFree = () => {
         >
           Voltar aos planos
         </button>
-        <h1 className="mt-4 text-3xl font-extrabold">Teste grátis por 30 dias</h1>
+        <h1 className="mt-4 text-3xl font-extrabold">Teste gratis por 30 dias</h1>
         <p className="mt-2 text-muted-foreground">
-          Preencha os dados para criar sua conta de teste por 30 dias, sem custo, e começar agora.
+          Preencha os dados para criar sua conta de teste por 30 dias, sem custo, e comecar agora.
         </p>
 
         <form className="mt-8 space-y-4" onSubmit={onSubmit}>
@@ -106,7 +106,7 @@ const SignupFree = () => {
             <input
               className="w-full rounded-xl border px-4 py-3 pr-12"
               type={showPassword ? "text" : "password"}
-              placeholder="Senha (mín. 6 caracteres)"
+              placeholder="Senha (min. 6 caracteres)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -137,8 +137,13 @@ const SignupFree = () => {
             disabled={!canSubmit}
             className="w-full rounded-xl bg-primary px-4 py-3 font-semibold text-primary-foreground disabled:opacity-50"
           >
-            {submitting ? "Criando sua conta..." : "Começar teste grátis de 30 dias"}
+            {submitting ? "Criando sua conta..." : "Comecar teste gratis de 30 dias"}
           </button>
+          {submitting ? (
+            <p className="text-xs text-muted-foreground">
+              Primeiro acesso pode levar ate 60 segundos enquanto o servidor inicializa.
+            </p>
+          ) : null}
         </form>
       </div>
     </main>
