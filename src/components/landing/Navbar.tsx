@@ -32,7 +32,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm">Login</Button>
+          <Button asChild variant="ghost" size="sm">
+            <a href="https://nutriflow-care.onrender.com/login">Login</a>
+          </Button>
           <Button size="sm" className="rounded-full">Experimentar grátis</Button>
         </div>
 
