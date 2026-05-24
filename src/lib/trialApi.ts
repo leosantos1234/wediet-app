@@ -3,7 +3,10 @@ type TrialSignupPayload = {
   email: string;
   password: string;
   mobile_phone?: string;
+  cpf?: string;
   specialty?: string;
+  specializations?: string[];
+  selected_plan?: "gratis" | "profissional" | "premium";
 };
 
 type TrialSignupResponse = {

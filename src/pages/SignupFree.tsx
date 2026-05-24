@@ -1,6 +1,6 @@
 import { FormEvent, useMemo, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { signupTrialFree } from "@/lib/trialApi";
 
 type TrialSuccessState = {
@@ -12,16 +12,25 @@ type TrialSuccessState = {
 
 const SignupFree = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [cpf, setCpf] = useState("");
   const [specialty, setSpecialty] = useState("");
+  const [specializationsInput, setSpecializationsInput] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState<TrialSuccessState | null>(null);
+  const selectedPlan =
+    (searchParams.get("plan") || "gratis").toLowerCase() === "premium"
+      ? "premium"
+      : (searchParams.get("plan") || "gratis").toLowerCase() === "profissional"
+        ? "profissional"
+        : "gratis";
 
   const canSubmit = useMemo(
     () =>
@@ -50,7 +59,13 @@ const SignupFree = () => {
         email: email.trim().toLowerCase(),
         password,
         mobile_phone: phone.trim() || undefined,
+        cpf: cpf.trim() || undefined,
         specialty: specialty.trim() || undefined,
+        specializations: specializationsInput
+          .split(",")
+          .map((item) => item.trim())
+          .filter(Boolean),
+        selected_plan: selectedPlan,
       });
 
       setSuccess({
@@ -135,9 +150,21 @@ const SignupFree = () => {
             />
             <input
               className="w-full rounded-xl border px-4 py-3"
+              placeholder="CPF"
+              value={cpf}
+              onChange={(e) => setCpf(e.target.value)}
+            />
+            <input
+              className="w-full rounded-xl border px-4 py-3"
               placeholder="Especialidade (opcional)"
               value={specialty}
               onChange={(e) => setSpecialty(e.target.value)}
+            />
+            <input
+              className="w-full rounded-xl border px-4 py-3"
+              placeholder="Especialidades (separadas por virgula)"
+              value={specializationsInput}
+              onChange={(e) => setSpecializationsInput(e.target.value)}
             />
 
             <div className="relative">
