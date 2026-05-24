@@ -1,9 +1,14 @@
-﻿import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { signupTrialFree } from "@/lib/trialApi";
 
-const APP_URL = "https://app.nudiet.com.br";
+type TrialSuccessState = {
+  email: string;
+  message: string;
+  activationLink?: string | null;
+  activationEmailSent: boolean;
+};
 
 const SignupFree = () => {
   const navigate = useNavigate();
@@ -16,6 +21,7 @@ const SignupFree = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState<TrialSuccessState | null>(null);
 
   const canSubmit = useMemo(
     () =>
@@ -30,6 +36,7 @@ const SignupFree = () => {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
+    setSuccess(null);
 
     if (password !== confirmPassword) {
       setError("As senhas precisam ser iguais.");
@@ -46,11 +53,12 @@ const SignupFree = () => {
         specialty: specialty.trim() || undefined,
       });
 
-      const redirectUrl = new URL(`${APP_URL}/login`);
-      redirectUrl.searchParams.set("email", created.user.email);
-      redirectUrl.searchParams.set("trial", "1");
-      redirectUrl.searchParams.set("token", created.token);
-      window.location.assign(redirectUrl.toString());
+      setSuccess({
+        email: created.email,
+        message: created.message,
+        activationLink: created.activation_link ?? null,
+        activationEmailSent: created.activation_email_sent,
+      });
     } catch (err) {
       setError((err as Error).message || "Erro ao criar conta.");
     } finally {
@@ -73,78 +81,109 @@ const SignupFree = () => {
           Preencha os dados para criar sua conta de teste por 30 dias, sem custo, e comecar agora.
         </p>
 
-        <form className="mt-8 space-y-4" onSubmit={onSubmit}>
-          <input
-            className="w-full rounded-xl border px-4 py-3"
-            placeholder="Nome completo"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            required
-          />
-          <input
-            className="w-full rounded-xl border px-4 py-3"
-            type="email"
-            placeholder="E-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            className="w-full rounded-xl border px-4 py-3"
-            placeholder="WhatsApp (opcional)"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-          <input
-            className="w-full rounded-xl border px-4 py-3"
-            placeholder="Especialidade (opcional)"
-            value={specialty}
-            onChange={(e) => setSpecialty(e.target.value)}
-          />
-
-          <div className="relative">
+        {success ? (
+          <section className="mt-8 space-y-4 rounded-xl border border-emerald-200 bg-emerald-50 p-5">
+            <h2 className="text-lg font-semibold text-emerald-800">Conta de teste criada</h2>
+            <p className="text-sm text-emerald-800">{success.message}</p>
+            <p className="text-sm text-emerald-700">
+              E-mail de ativacao: <strong>{success.email}</strong>
+            </p>
+            {success.activationEmailSent ? (
+              <p className="text-sm text-emerald-700">
+                Abra seu e-mail e clique no link para ativar a conta antes do primeiro login.
+              </p>
+            ) : null}
+            {success.activationLink ? (
+              <a
+                href={success.activationLink}
+                className="inline-flex items-center rounded-lg border border-emerald-300 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-100"
+              >
+                Abrir link de ativacao
+              </a>
+            ) : null}
+            <div>
+              <a
+                href={`https://app.nudiet.com.br/login?email=${encodeURIComponent(success.email)}`}
+                className="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+              >
+                Ir para login do sistema
+              </a>
+            </div>
+          </section>
+        ) : (
+          <form className="mt-8 space-y-4" onSubmit={onSubmit}>
             <input
-              className="w-full rounded-xl border px-4 py-3 pr-12"
+              className="w-full rounded-xl border px-4 py-3"
+              placeholder="Nome completo"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              required
+            />
+            <input
+              className="w-full rounded-xl border px-4 py-3"
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              className="w-full rounded-xl border px-4 py-3"
+              placeholder="WhatsApp (opcional)"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <input
+              className="w-full rounded-xl border px-4 py-3"
+              placeholder="Especialidade (opcional)"
+              value={specialty}
+              onChange={(e) => setSpecialty(e.target.value)}
+            />
+
+            <div className="relative">
+              <input
+                className="w-full rounded-xl border px-4 py-3 pr-12"
+                type={showPassword ? "text" : "password"}
+                placeholder="Senha (min. 6 caracteres)"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                minLength={6}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+              >
+                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              </button>
+            </div>
+            <input
+              className="w-full rounded-xl border px-4 py-3"
               type={showPassword ? "text" : "password"}
-              placeholder="Senha (min. 6 caracteres)"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Confirmar senha"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               required
               minLength={6}
             />
+
+            {error ? <p className="text-sm text-red-600">{error}</p> : null}
+
             <button
-              type="button"
-              onClick={() => setShowPassword((v) => !v)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+              type="submit"
+              disabled={!canSubmit}
+              className="w-full rounded-xl bg-primary px-4 py-3 font-semibold text-primary-foreground disabled:opacity-50"
             >
-              {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              {submitting ? "Criando sua conta..." : "Comecar teste gratis de 30 dias"}
             </button>
-          </div>
-          <input
-            className="w-full rounded-xl border px-4 py-3"
-            type={showPassword ? "text" : "password"}
-            placeholder="Confirmar senha"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            minLength={6}
-          />
-
-          {error ? <p className="text-sm text-red-600">{error}</p> : null}
-
-          <button
-            type="submit"
-            disabled={!canSubmit}
-            className="w-full rounded-xl bg-primary px-4 py-3 font-semibold text-primary-foreground disabled:opacity-50"
-          >
-            {submitting ? "Criando sua conta..." : "Comecar teste gratis de 30 dias"}
-          </button>
-          {submitting ? (
-            <p className="text-xs text-muted-foreground">
-              Primeiro acesso pode levar ate 60 segundos enquanto o servidor inicializa.
-            </p>
-          ) : null}
-        </form>
+            {submitting ? (
+              <p className="text-xs text-muted-foreground">
+                Primeiro acesso pode levar ate 60 segundos enquanto o servidor inicializa.
+              </p>
+            ) : null}
+          </form>
+        )}
       </div>
     </main>
   );

@@ -7,14 +7,13 @@ type TrialSignupPayload = {
 };
 
 type TrialSignupResponse = {
-  token: string;
-  user: {
-    id: number;
-    full_name: string;
-    email: string;
-    role: "professional" | "patient" | "admin";
-  };
+  success: boolean;
   account_mode: string;
+  activation_required: boolean;
+  activation_email_sent: boolean;
+  email: string;
+  activation_link?: string | null;
+  message: string;
 };
 
 const resolveApiBaseUrl = (): string => {
