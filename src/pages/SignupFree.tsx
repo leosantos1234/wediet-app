@@ -6,7 +6,6 @@ import { signupTrialFree } from "@/lib/trialApi";
 type TrialSuccessState = {
   email: string;
   message: string;
-  activationLink?: string | null;
   activationEmailSent: boolean;
 };
 
@@ -71,7 +70,6 @@ const SignupFree = () => {
       setSuccess({
         email: created.email,
         message: created.message,
-        activationLink: created.activation_link ?? null,
         activationEmailSent: created.activation_email_sent,
       });
     } catch (err) {
@@ -99,23 +97,17 @@ const SignupFree = () => {
         {success ? (
           <section className="mt-8 space-y-4 rounded-xl border border-emerald-200 bg-emerald-50 p-5">
             <h2 className="text-lg font-semibold text-emerald-800">Conta de teste criada</h2>
-            <p className="text-sm text-emerald-800">{success.message}</p>
+            <p className="text-sm text-emerald-800">
+              Cadastro concluido com sucesso. Para continuar, confirme sua conta pelo e-mail
+              enviado.
+            </p>
             <p className="text-sm text-emerald-700">
               E-mail de ativacao: <strong>{success.email}</strong>
             </p>
-            {success.activationEmailSent ? (
-              <p className="text-sm text-emerald-700">
-                Abra seu e-mail e clique no link para ativar a conta antes do primeiro login.
-              </p>
-            ) : null}
-            {success.activationLink ? (
-              <a
-                href={success.activationLink}
-                className="inline-flex items-center rounded-lg border border-emerald-300 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-100"
-              >
-                Abrir link de ativacao
-              </a>
-            ) : null}
+            <p className="text-sm text-emerald-700">
+              Enviamos as instrucoes para seu e-mail. Verifique a caixa de entrada e o spam para
+              ativar a conta antes do primeiro login.
+            </p>
             <div>
               <a
                 href={`https://app.nudiet.com.br/login?email=${encodeURIComponent(success.email)}`}
