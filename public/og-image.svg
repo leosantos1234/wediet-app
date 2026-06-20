@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="NuDiet">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ECFDF5" />
+      <stop offset="55%" stop-color="#F8FFFB" />
+      <stop offset="100%" stop-color="#D1FAE5" />
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#0F766E" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#bg)" />
+  <circle cx="166" cy="166" r="84" fill="#D1FAE5" />
+  <g transform="translate(104 104)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 92c0-30 24-54 54-54h18v18c0 30-24 54-54 54H28V92z" stroke="#34D399" stroke-width="10" />
+    <path d="M50 100c20-3 35-17 40-39" stroke="#0F766E" stroke-width="8" />
+  </g>
+  <text x="268" y="164" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">NuDiet</text>
+  <text x="268" y="236" fill="#0F766E" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="600">Transforme leads em pacientes</text>
+  <text x="268" y="304" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="26">Capte leads, automatize o follow-up e converta interessados.</text>
+  <text x="268" y="350" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="26">Tudo em uma plataforma feita para nutricionistas.</text>
+  <rect x="268" y="410" width="260" height="70" rx="35" fill="url(#brand)" />
+  <text x="398" y="455" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">NuDiet</text>
+</svg>
