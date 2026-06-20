@@ -19,7 +19,13 @@ type CheckoutResponse = {
   checkout_url: string;
 };
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000").replace(/\/$/, "");
+const resolveApiBaseUrl = (): string => {
+  const envBase = String(import.meta.env.VITE_API_URL || "").trim();
+  if (envBase) return envBase.replace(/\/+$/, "");
+  return "https://nutriflow-api.onrender.com";
+};
+
+const API_BASE_URL = resolveApiBaseUrl();
 
 async function apiRequest<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, {
