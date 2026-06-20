@@ -67,7 +67,7 @@ const plans = [
     price: "R$ 119,00",
     period: "/mes",
     description: "Tudo do Profissional com recursos avancados para crescer com estrutura.",
-    note: "Ideal para equipes e operacao mais completa.",
+    note: "Para nutricionistas que desejam ir alem no atendimento.",
     badge: "Mais completo",
     cta: "Assinar agora",
     featured: false,
@@ -125,15 +125,14 @@ const PricingSection = () => {
               <div className={`absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br ${plan.tone} blur-3xl`} />
 
               {plan.badge && (
-                <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 px-4 py-1 rounded-full bg-hero-gradient text-primary-foreground text-xs font-semibold shadow-lg">
-                  {plan.badge}
+                <div className="relative mb-5 flex justify-center">
+                  <div className="rounded-full bg-hero-gradient px-4 py-1 text-xs font-semibold text-primary-foreground shadow-lg">
+                    {plan.badge}
+                  </div>
                 </div>
               )}
 
               <div className="relative">
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/80 px-3 py-1 text-xs font-semibold text-muted-foreground">
-                  {plan.name}
-                </div>
                 <h3 className="text-2xl font-extrabold mb-2">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{plan.description}</p>
               </div>
