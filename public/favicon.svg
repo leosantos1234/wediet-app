@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NuDiet">
+  <circle cx="32" cy="32" r="30" fill="#D1FAE5" />
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 36c0-10 8-18 18-18h6v6c0 10-8 18-18 18h-6v-6z" stroke="#34D399" stroke-width="3.2" />
+    <path d="M25 38c7-1 12-6 14-13" stroke="#0F766E" stroke-width="2.6" />
+  </g>
+</svg>
