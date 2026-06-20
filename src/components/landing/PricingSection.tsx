@@ -3,59 +3,51 @@ import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-const WHATSAPP_SALES_URL =
-  "https://wa.me/5511999999999?text=Olá%2C%20quero%20falar%20sobre%20o%20plano%20Premium%20da%20NuDiet";
-
 const plans = [
   {
     name: "Starter",
-    price: "Grátis",
+    price: "Gratis",
     period: "para sempre",
-    description: "Ideal para começar e testar a plataforma",
-    features: [
-      "Até 10 pacientes",
-      "Planos alimentares básicos",
-      "App do paciente",
-      "Agenda básica",
-    ],
-    cta: "Começar grátis",
+    description: "Ideal para comecar e testar a plataforma",
+    features: ["Ate 10 pacientes", "Planos alimentares basicos", "App do paciente", "Agenda basica"],
+    cta: "Comecar gratis",
     featured: false,
-    actionUrl: "/signup-free",
+    actionUrl: "/cadastro?plan=gratis",
   },
   {
     name: "Profissional",
     price: "R$ 89",
-    period: "/mês",
-    description: "Tudo que você precisa para crescer",
+    period: "/mes",
+    description: "Tudo que voce precisa para crescer",
     features: [
       "Pacientes ilimitados",
-      "Análise corporal 360° com fotos",
-      "IA para transcrição de consultas",
-      "Follow-up automático",
-      "Integração WhatsApp",
-      "Relatórios avançados",
+      "Analise corporal 360° com fotos",
+      "IA para transcricao de consultas",
+      "Follow-up automatico",
+      "Integracao WhatsApp",
+      "Relatorios avancados",
     ],
-    cta: "Experimente grátis",
+    cta: "Assinar agora",
     featured: true,
     badge: "Mais popular",
-    actionUrl: "/signup-free",
+    actionUrl: "/cadastro?plan=profissional",
   },
   {
     name: "Premium",
     price: "R$ 149",
-    period: "/mês",
-    description: "Para clínicas e profissionais de alto volume",
+    period: "/mes",
+    description: "Para clinicas e profissionais de alto volume",
     features: [
       "Tudo do Profissional",
       "Multi-profissional",
-      "Desafios e gamificação",
-      "API e integrações avançadas",
-      "Suporte prioritário",
+      "Desafios e gamificacao",
+      "API e integracoes avancadas",
+      "Suporte prioritario",
       "Branding personalizado",
     ],
-    cta: "Fale com vendas",
+    cta: "Assinar agora",
     featured: false,
-    actionUrl: WHATSAPP_SALES_URL,
+    actionUrl: "/cadastro?plan=premium",
   },
 ];
 
@@ -70,10 +62,10 @@ const PricingSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Planos e <span className="text-gradient">Preços</span>
+            Planos e <span className="text-gradient">Precos</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Descubra o plano perfeito para seu nível de atuação
+            Descubra o plano perfeito para seu nivel de atuacao
           </p>
         </motion.div>
 

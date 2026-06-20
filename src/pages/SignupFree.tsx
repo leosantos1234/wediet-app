@@ -2,11 +2,23 @@ import { FormEvent, useMemo, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { signupTrialFree } from "@/lib/trialApi";
+import { createCheckout } from "@/lib/subscriptionApi";
 
 type TrialSuccessState = {
   email: string;
   message: string;
   activationEmailSent: boolean;
+};
+
+const PLAN_LABELS: Record<"gratis" | "profissional" | "premium", string> = {
+  gratis: "Gratis",
+  profissional: "Profissional",
+  premium: "Premium",
+};
+
+const PLAN_CHECKOUT_IDS: Partial<Record<"profissional" | "premium", number>> = {
+  profissional: 1,
+  premium: 2,
 };
 
 const SignupFree = () => {
@@ -24,12 +36,17 @@ const SignupFree = () => {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState<TrialSuccessState | null>(null);
-  const selectedPlan =
-    (searchParams.get("plan") || "gratis").toLowerCase() === "premium"
-      ? "premium"
-      : (searchParams.get("plan") || "gratis").toLowerCase() === "profissional"
-        ? "profissional"
-        : "gratis";
+
+  const selectedPlan = useMemo<"gratis" | "profissional" | "premium">(() => {
+    const raw = (searchParams.get("plan") || "gratis").toLowerCase();
+    if (raw === "premium") return "premium";
+    if (raw === "profissional") return "profissional";
+    return "gratis";
+  }, [searchParams]);
+
+  const isPaidPlan = selectedPlan !== "gratis";
+  const planLabel = PLAN_LABELS[selectedPlan];
+  const checkoutPlanId = selectedPlan === "gratis" ? null : PLAN_CHECKOUT_IDS[selectedPlan];
 
   const canSubmit = useMemo(
     () =>
@@ -38,7 +55,7 @@ const SignupFree = () => {
       email.trim().length >= 3 &&
       password.length >= 6 &&
       password === confirmPassword,
-    [submitting, fullName, email, password, confirmPassword]
+    [submitting, fullName, email, password, confirmPassword],
   );
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -67,6 +84,20 @@ const SignupFree = () => {
         selected_plan: selectedPlan,
       });
 
+      if (isPaidPlan) {
+        if (!checkoutPlanId) {
+          throw new Error("Nao foi possivel iniciar o checkout deste plano.");
+        }
+
+        if (!created.user_id) {
+          throw new Error("Nao foi possivel identificar a conta criada para o checkout.");
+        }
+
+        const checkout = await createCheckout(created.user_id, checkoutPlanId);
+        window.location.href = checkout.checkout_url;
+        return;
+      }
+
       setSuccess({
         email: created.email,
         message: created.message,
@@ -89,10 +120,20 @@ const SignupFree = () => {
         >
           Voltar aos planos
         </button>
-        <h1 className="mt-4 text-3xl font-extrabold">Teste gratis por 30 dias</h1>
+        <h1 className="mt-4 text-3xl font-extrabold">
+          {isPaidPlan ? `Criar conta do plano ${planLabel}` : "Teste gratis por 30 dias"}
+        </h1>
         <p className="mt-2 text-muted-foreground">
-          Preencha os dados para criar sua conta de teste por 30 dias, sem custo, e comecar agora.
+          {isPaidPlan
+            ? "Preencha seus dados para criar a conta e seguir direto para o pagamento com cartao de credito."
+            : "Preencha os dados para criar sua conta de teste por 30 dias, sem custo, e comecar agora."}
         </p>
+
+        {isPaidPlan && !success ? (
+          <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm text-muted-foreground">
+            Depois do cadastro, voce sera redirecionado para o checkout do plano {planLabel}.
+          </div>
+        ) : null}
 
         {success ? (
           <section className="mt-8 space-y-4 rounded-xl border border-emerald-200 bg-emerald-50 p-5">
@@ -194,11 +235,19 @@ const SignupFree = () => {
               disabled={!canSubmit}
               className="w-full rounded-xl bg-primary px-4 py-3 font-semibold text-primary-foreground disabled:opacity-50"
             >
-              {submitting ? "Criando sua conta..." : "Comecar teste gratis de 30 dias"}
+              {submitting
+                ? isPaidPlan
+                  ? "Preparando o checkout..."
+                  : "Criando sua conta..."
+                : isPaidPlan
+                  ? `Continuar para pagamento do plano ${planLabel}`
+                  : "Comecar teste gratis de 30 dias"}
             </button>
             {submitting ? (
               <p className="text-xs text-muted-foreground">
-                Primeiro acesso pode levar ate 60 segundos enquanto o servidor inicializa.
+                {isPaidPlan
+                  ? "Aguarde um instante enquanto preparamos seu checkout."
+                  : "Primeiro acesso pode levar ate 60 segundos enquanto o servidor inicializa."}
               </p>
             ) : null}
           </form>

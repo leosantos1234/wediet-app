@@ -14,6 +14,7 @@ type TrialSignupResponse = {
   account_mode: string;
   activation_required: boolean;
   activation_email_sent: boolean;
+  user_id?: number | null;
   email: string;
   activation_link?: string | null;
   message: string;
