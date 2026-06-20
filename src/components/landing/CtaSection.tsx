@@ -25,7 +25,7 @@ const CtaSection = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg" variant="secondary" className="text-base px-8 h-12 gap-2 font-semibold rounded-full">
                 <a href="/#pricing">
-                  Experimente grátis agora <ArrowRight className="h-4 w-4" />
+                  Comecar gratis 30 dias <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
               <Button size="lg" variant="ghost" className="text-base px-8 h-12 text-primary-foreground hover:bg-primary-foreground/10 rounded-full">

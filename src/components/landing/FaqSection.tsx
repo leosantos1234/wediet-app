@@ -20,8 +20,8 @@ const faqs = [
     a: "Nossa IA é treinada especificamente para fluxos de nutrição. Ela qualifica leads, agenda consultas, transcreve atendimentos e sugere planos alimentares. Tudo é revisado e aprovado por você.",
   },
   {
-    q: "O que acontece após o período grátis?",
-    a: "Após 14 dias, você pode escolher o plano ideal para o tamanho do seu consultório. Sem cobranças surpresa. Você pode exportar seus dados a qualquer momento.",
+    q: "O que acontece após os 30 dias gratis?",
+    a: "Após os 30 dias, você pode escolher o plano ideal para o tamanho do seu consultório. Sem cobranças surpresa. Você pode exportar seus dados a qualquer momento.",
   },
   {
     q: "Meus dados de pacientes estão seguros?",

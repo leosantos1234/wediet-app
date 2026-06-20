@@ -19,7 +19,7 @@ const testimonials = [
     role: "Nutricionista Esportivo",
   },
   {
-    quote: "A análise corporal 360° dá aos meus pacientes prova visual do progresso. A retenção disparou.",
+    quote: "A automacao do NuDiet me ajudou a organizar melhor o atendimento e ganhar tempo com cada paciente.",
     name: "Marina Costa",
     role: "Nutricionista Funcional",
   },

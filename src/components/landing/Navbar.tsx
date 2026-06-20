@@ -43,7 +43,7 @@ const Navbar = () => {
             <a href="https://app.nudiet.com.br/login">Login</a>
           </Button>
           <Button asChild size="sm" className="rounded-full">
-            <a href="/#pricing">Experimentar grátis</a>
+            <a href="/#pricing">Experimentar gratis 30 dias</a>
           </Button>
         </div>
 
@@ -75,7 +75,7 @@ const Navbar = () => {
                 <a href="https://app.nudiet.com.br/login">Login</a>
               </Button>
               <Button asChild size="sm" className="w-full mt-2 rounded-full">
-                <a href="/#pricing">Experimentar grátis</a>
+                <a href="/#pricing">Experimentar gratis 30 dias</a>
               </Button>
             </div>
           </motion.div>

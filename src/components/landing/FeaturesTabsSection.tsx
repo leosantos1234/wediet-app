@@ -1,10 +1,28 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Sparkles, Stethoscope, Heart, BarChart3, GraduationCap,
-  MessageSquare, Bot, ClipboardList, Smartphone, Video,
-  CalendarCheck, Palette, Users, Globe, TrendingUp, FileText,
-  Trophy, Apple, Bell, Droplets, LineChart, ShoppingBag
+import {
+  Sparkles,
+  Stethoscope,
+  Heart,
+  BarChart3,
+  MessageSquare,
+  Bot,
+  ClipboardList,
+  Smartphone,
+  Video,
+  CalendarCheck,
+  Palette,
+  Users,
+  Globe,
+  TrendingUp,
+  FileText,
+  Trophy,
+  Apple,
+  Bell,
+  Droplets,
+  LineChart,
+  ShoppingBag,
+  ShieldCheck,
 } from "lucide-react";
 
 const tabs = [
@@ -12,14 +30,14 @@ const tabs = [
     id: "diferenciais",
     label: "Diferenciais",
     icon: Sparkles,
-    title: "Veja por que o NuDiet é o melhor:",
+    title: "Veja por que o NuDiet se destaca:",
     items: [
-      { icon: MessageSquare, text: "Integração com WhatsApp" },
-      { icon: Bot, text: "Assistente IA — otimize planos alimentares" },
-      { icon: ClipboardList, text: "NutriPlan para gerenciar tarefas e lembretes" },
+      { icon: MessageSquare, text: "Integracao com WhatsApp" },
+      { icon: Bot, text: "NuPilot, seu copiloto de consultas" },
+      { icon: ClipboardList, text: "Grupo de Acompanhamento para engajar pacientes" },
       { icon: Palette, text: "Templates prontos para editar" },
-      { icon: Globe, text: "Apareça na busca por nutricionistas" },
-      { icon: CalendarCheck, text: "Conexão com o Google Agenda" },
+      { icon: Globe, text: "Apareca na busca por nutricionistas" },
+      { icon: CalendarCheck, text: "Conexao com o Google Agenda" },
     ],
   },
   {
@@ -29,38 +47,38 @@ const tabs = [
     title: "Ferramentas precisas para o atendimento nutricional",
     items: [
       { icon: FileText, text: "Planos alimentares calculados ou livres" },
-      { icon: BarChart3, text: "Análise corporal 360° com fotos" },
-      { icon: Bot, text: "Transcrição de consultas com IA" },
-      { icon: ClipboardList, text: "Questionário pré-consulta e anamnese" },
-      { icon: Sparkles, text: "Prescrições de suplementos inteligentes" },
-      { icon: Video, text: "Videoconferência integrada" },
+      { icon: Bot, text: "Transcricao de consultas com IA" },
+      { icon: ShieldCheck, text: "Interpretacao de exames e apoio clinico" },
+      { icon: ClipboardList, text: "Questionario pre-consulta e anamnese" },
+      { icon: Sparkles, text: "Prescricoes de suplementos inteligentes" },
+      { icon: Video, text: "Videoconferencia integrada" },
     ],
   },
   {
     id: "fidelizacao",
-    label: "Fidelização",
+    label: "Fidelizacao",
     icon: Heart,
     title: "Aplicativo do paciente para motivar e fidelizar",
     items: [
       { icon: Apple, text: "Plano alimentar e lista de compras" },
       { icon: Trophy, text: "Desafios e metas gamificadas" },
       { icon: Smartphone, text: "Agendamento de consultas pelo app" },
-      { icon: Droplets, text: "Lembrete de hidratação personalizado" },
-      { icon: LineChart, text: "Gráficos de acompanhamento da evolução" },
-      { icon: Bell, text: "Follow-up automático de pacientes" },
+      { icon: Droplets, text: "Lembrete de hidratacao personalizado" },
+      { icon: LineChart, text: "Graficos de acompanhamento da evolucao" },
+      { icon: Bell, text: "Follow-up automatico de pacientes" },
     ],
   },
   {
     id: "gestao",
-    label: "Gestão",
+    label: "Gestao",
     icon: BarChart3,
-    title: "Gestão completa para o sucesso do seu consultório",
+    title: "Gestao completa para o sucesso do seu consultorio",
     items: [
-      { icon: Users, text: "Captação automática de leads" },
-      { icon: CalendarCheck, text: "Agenda com marcação online" },
-      { icon: TrendingUp, text: "Área de controle financeiro" },
-      { icon: Globe, text: "Site profissional para captação" },
-      { icon: FileText, text: "Relatórios de acompanhamento" },
+      { icon: Users, text: "Captacao automatica de leads" },
+      { icon: CalendarCheck, text: "Agenda com marcacao online" },
+      { icon: TrendingUp, text: "Area de controle financeiro" },
+      { icon: Globe, text: "Site profissional para captacao" },
+      { icon: FileText, text: "Relatorios de acompanhamento" },
       { icon: ShoppingBag, text: "Ferramentas de marketing integradas" },
     ],
   },
@@ -80,11 +98,10 @@ const FeaturesTabsSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Conheça nossas <span className="text-gradient">principais ferramentas</span>
+            Conheca nossas <span className="text-gradient">principais ferramentas</span>
           </h2>
         </motion.div>
 
-        {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
           {tabs.map((tab) => (
             <button
@@ -102,7 +119,6 @@ const FeaturesTabsSection = () => {
           ))}
         </div>
 
-        {/* Content */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -137,9 +153,3 @@ const FeaturesTabsSection = () => {
 };
 
 export default FeaturesTabsSection;
-
-
-
-
-
-

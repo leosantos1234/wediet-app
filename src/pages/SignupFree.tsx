@@ -11,7 +11,7 @@ type TrialSuccessState = {
 };
 
 const PLAN_LABELS: Record<"gratis" | "profissional" | "premium", string> = {
-  gratis: "Gratis",
+  gratis: "Gratis 30 dias",
   profissional: "Profissional",
   premium: "Premium",
 };
@@ -120,18 +120,28 @@ const SignupFree = () => {
         >
           Voltar aos planos
         </button>
+        <div className="mt-4 inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary">
+          {isPaidPlan ? planLabel : "Sem cartao de credito"}
+        </div>
         <h1 className="mt-4 text-3xl font-extrabold">
           {isPaidPlan ? `Criar conta do plano ${planLabel}` : "Teste gratis por 30 dias"}
         </h1>
         <p className="mt-2 text-muted-foreground">
           {isPaidPlan
             ? "Preencha seus dados para criar a conta e seguir direto para o pagamento com cartao de credito."
-            : "Preencha os dados para criar sua conta de teste por 30 dias, sem custo, e comecar agora."}
+            : "Preencha os dados para criar sua conta de teste por 30 dias, sem custo e sem precisar de cartao."}
         </p>
 
         {isPaidPlan && !success ? (
           <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm text-muted-foreground">
             Depois do cadastro, voce sera redirecionado para o checkout do plano {planLabel}.
+          </div>
+        ) : null}
+
+        {!isPaidPlan && !success ? (
+          <div className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
+            Voce vai testar a plataforma completa por 30 dias, com os mesmos recursos do plano
+            Profissional.
           </div>
         ) : null}
 

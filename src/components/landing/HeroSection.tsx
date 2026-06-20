@@ -47,7 +47,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-start gap-3">
               <Button asChild size="lg" className="text-base px-8 h-12 gap-2 rounded-full">
                 <a href="/#pricing">
-                  Experimente grátis agora <ArrowRight className="h-4 w-4" />
+                  Comecar gratis 30 dias <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
               <Button variant="outline" size="lg" className="text-base px-8 h-12 gap-2 rounded-full">

@@ -1,31 +1,42 @@
 import { motion } from "framer-motion";
-import { ScanFace, Mic, BellRing, Utensils, Trophy } from "lucide-react";
+import { BellRing, Mic, Trophy, Utensils, CalendarCheck, Bot } from "lucide-react";
 
 const features = [
   {
-    icon: ScanFace,
-    title: "360° Body Analysis",
-    description: "Patients upload photos and get AI-powered body composition insights — visual progress they can see and feel.",
+    icon: Bot,
+    title: "NuPilot, seu copiloto de consultas",
+    description:
+      "Apoio inteligente para acelerar tarefas repetitivas e manter o atendimento mais fluido.",
   },
   {
     icon: Mic,
-    title: "AI Consultation Notes",
-    description: "Automatic transcription and smart summaries of every consultation. Focus on your patient, not your notepad.",
+    title: "Transcricao de consultas com IA",
+    description:
+      "Automaticamente transforme atendimentos em registros organizados, sem perder o contexto.",
   },
   {
     icon: BellRing,
-    title: "Automated Follow-ups",
-    description: "Smart reminders, check-ins, and re-engagement sequences that keep patients on track without your effort.",
+    title: "Follow-up automatizado",
+    description:
+      "Lembretes, retornos e reativacao de pacientes sem depender de controles manuais.",
   },
   {
     icon: Utensils,
-    title: "Meal Plan Generator",
-    description: "Create personalized nutrition plans in seconds. Adjust macros, swap meals, and export beautiful PDFs.",
+    title: "Planos alimentares personalizados",
+    description:
+      "Crie orientacoes mais rapidas e consistentes, com a flexibilidade que o consultorio precisa.",
   },
   {
     icon: Trophy,
-    title: "Patient Challenges",
-    description: "Gamified challenges that keep patients engaged and motivated. Boost retention and results simultaneously.",
+    title: "Desafios e gamificacao",
+    description:
+      "Recursos para engajar pacientes e aumentar a adesao ao tratamento.",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Agenda integrada ao Google Agenda",
+    description:
+      "Organize consultas com sincronizacao direta e menos chance de conflitos de horario.",
   },
 ];
 
@@ -40,10 +51,11 @@ const FeaturesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Everything you need to <span className="text-gradient">grow your practice</span>
+            Recursos que <span className="text-gradient">fazem a rotina girar</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Powerful tools designed specifically for nutritionists who want to scale.
+            Um conjunto de ferramentas pensado para nutricionistas que querem mais agilidade,
+            controle e conversao.
           </p>
         </motion.div>
 
