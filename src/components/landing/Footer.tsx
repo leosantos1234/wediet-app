@@ -17,7 +17,7 @@ const Footer = () => {
           <a href="/politica-de-privacidade.html" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Política de Privacidade</a>
           <a href="/exclusao-de-conta.html" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Exclusão de Conta</a>
           <a href="/termos-de-uso.html" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Termos de Uso</a>
-          <a href="mailto:leosantos.rib@gmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contato</a>
+          <a href="mailto:contato@nudiet.com.br" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contato</a>
         </div>
       </div>
     </footer>
