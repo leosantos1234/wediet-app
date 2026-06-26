@@ -93,7 +93,13 @@ const PricingSection = () => {
                 </div>
 
                 {planInfo.note && (
-                  <p className={`relative mt-2 text-sm ${planInfo.featured ? "text-foreground/80" : "text-muted-foreground"}`}>
+                  <p
+                    className={`relative mt-2 rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+                      planInfo.featured
+                        ? "border border-primary/15 bg-primary/5 text-primary/90 font-medium"
+                        : "bg-muted/50 text-muted-foreground"
+                    }`}
+                  >
                     {planInfo.note}
                   </p>
                 )}

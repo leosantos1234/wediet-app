@@ -48,7 +48,7 @@ export const PLAN_COPY: Record<PlanCode, PlanCopy> = {
   gratis: {
     description: "Experimente a plataforma completa sem cartao de credito.",
     badge: "Sem cartao",
-    cta: "Comecar gratis",
+    cta: "Começar grátis",
     featured: false,
     tone: "from-emerald-500/10 via-card to-card",
   },
@@ -101,6 +101,10 @@ export function getPlanDisplayInfo(plan: Plan) {
   const trialDays = plan.trial_days ?? 30;
   const isFreePlan = code === "gratis";
   const displayName = code === "gratis" ? "Grátis" : plan.name;
+  const note =
+    code === "profissional"
+      ? "Primeiros 3 meses por R$ 49,99. Depois R$ 89,00/mês."
+      : plan.billing_note ?? "";
 
   return {
     ...copy,
@@ -109,7 +113,7 @@ export function getPlanDisplayInfo(plan: Plan) {
     priceLabel: isFreePlan ? "Gratis" : formatPrice(plan.price),
     periodLabel: isFreePlan ? `por ${trialDays} dias` : "/mes",
     trialDays,
-    note: plan.billing_note ?? "",
+    note,
     actionUrl: `/cadastro?plan=${code}`,
   };
 }

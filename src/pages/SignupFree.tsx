@@ -147,7 +147,11 @@ const SignupFree = () => {
         {isPaidPlan && !success ? (
           <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm text-muted-foreground">
             Depois do cadastro, voce sera redirecionado para o checkout do plano {planLabel}.
-            {selectedPlanInfo?.note ? <span className="block mt-1">{selectedPlanInfo.note}</span> : null}
+            {selectedPlanInfo?.note ? (
+              <span className="mt-3 block rounded-lg border border-primary/15 bg-white/70 px-3 py-2 font-medium text-primary/90">
+                {selectedPlanInfo.note}
+              </span>
+            ) : null}
           </div>
         ) : null}
 
@@ -264,7 +268,7 @@ const SignupFree = () => {
                   : "Criando sua conta..."
                 : isPaidPlan
                   ? `Continuar para pagamento do plano ${planLabel}`
-                  : "Comecar teste gratis de 30 dias"}
+                  : "Começar teste grátis de 30 dias"}
             </button>
             {submitting ? (
               <p className="text-xs text-muted-foreground">
