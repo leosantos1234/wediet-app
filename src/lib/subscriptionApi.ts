@@ -1,9 +1,11 @@
 export type Plan = {
   id: number;
+  code: "gratis" | "profissional" | "premium";
   name: string;
   price: number;
-  max_patients: number;
-  features: Record<string, unknown>;
+  billing_note: string | null;
+  trial_days: number | null;
+  features: Record<string, boolean>;
 };
 
 export type SubscriptionStatus = "trial" | "active" | "past_due" | "canceled";

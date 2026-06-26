@@ -1,9 +1,10 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { BASE_FEATURES, PREMIUM_FEATURES, getPlanDisplayInfo, sortPlans } from "@/lib/planCatalog";
 import { createCheckout, getPlans } from "@/lib/subscriptionApi";
 
 const DEFAULT_USER_ID = 1;
@@ -60,37 +61,42 @@ const PlansPage = () => {
 
         {plansQuery.data && (
           <div className="grid md:grid-cols-3 gap-6">
-            {plansQuery.data.map((plan) => (
-              <Card key={plan.id}>
-                <CardHeader>
-                  <CardTitle>{plan.name}</CardTitle>
-                  <CardDescription>
-                    <span className="text-2xl font-bold">R$ {plan.price.toFixed(2)}</span>
-                    <span className="ml-1">/mes</span>
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm mb-4">Ate {plan.max_patients} pacientes</p>
-                  <ul className="space-y-2 mb-6">
-                    {Object.keys(plan.features ?? {}).map((featureKey) => (
-                      <li key={featureKey} className="flex items-center gap-2 text-sm">
-                        <Check className="h-4 w-4 text-primary" />
-                        {featureKey}
-                      </li>
-                    ))}
-                  </ul>
+            {sortPlans(plansQuery.data).map((plan) => {
+              const planInfo = getPlanDisplayInfo(plan);
+              const featureItems = planInfo.code === "premium" ? PREMIUM_FEATURES : BASE_FEATURES;
 
-                  <Button
-                    className="w-full"
-                    onClick={() => void handleSubscribe(plan.id)}
-                    disabled={loadingPlanId === plan.id}
-                  >
-                    {loadingPlanId === plan.id ? "Redirecionando..." : "Assinar"}
-                    <ArrowRight className="h-4 w-4 ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+              return (
+                <Card key={plan.id}>
+                  <CardHeader>
+                    <CardTitle>{planInfo.displayName}</CardTitle>
+                    <CardDescription>
+                      <span className="text-2xl font-bold">{planInfo.priceLabel}</span>
+                      <span className="ml-1">{planInfo.periodLabel}</span>
+                    </CardDescription>
+                    {planInfo.note ? <p className="text-sm text-muted-foreground">{planInfo.note}</p> : null}
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 mb-6">
+                      {featureItems.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2 text-sm">
+                          <Check className="h-4 w-4 text-primary" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Button
+                      className="w-full"
+                      onClick={() => void handleSubscribe(plan.id)}
+                      disabled={loadingPlanId === plan.id}
+                    >
+                      {loadingPlanId === plan.id ? "Redirecionando..." : "Assinar"}
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         )}
       </div>
@@ -99,7 +105,3 @@ const PlansPage = () => {
 };
 
 export default PlansPage;
-
-
-
-

@@ -1,8 +1,10 @@
 import { FormEvent, useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Eye, EyeOff } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { signupTrialFree } from "@/lib/trialApi";
-import { createCheckout } from "@/lib/subscriptionApi";
+import { createCheckout, getPlans } from "@/lib/subscriptionApi";
+import { getPlanDisplayInfo } from "@/lib/planCatalog";
 
 type TrialSuccessState = {
   email: string;
@@ -11,14 +13,9 @@ type TrialSuccessState = {
 };
 
 const PLAN_LABELS: Record<"gratis" | "profissional" | "premium", string> = {
-  gratis: "Gratis 30 dias",
+  gratis: "Grátis 30 dias",
   profissional: "Profissional",
   premium: "Premium",
-};
-
-const PLAN_CHECKOUT_IDS: Partial<Record<"profissional" | "premium", number>> = {
-  profissional: 1,
-  premium: 2,
 };
 
 const SignupFree = () => {
@@ -36,6 +33,10 @@ const SignupFree = () => {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState<TrialSuccessState | null>(null);
+  const plansQuery = useQuery({
+    queryKey: ["signup-plans"],
+    queryFn: getPlans,
+  });
 
   const selectedPlan = useMemo<"gratis" | "profissional" | "premium">(() => {
     const raw = (searchParams.get("plan") || "gratis").toLowerCase();
@@ -45,8 +46,13 @@ const SignupFree = () => {
   }, [searchParams]);
 
   const isPaidPlan = selectedPlan !== "gratis";
-  const planLabel = PLAN_LABELS[selectedPlan];
-  const checkoutPlanId = selectedPlan === "gratis" ? null : PLAN_CHECKOUT_IDS[selectedPlan];
+  const selectedPlanData = useMemo(
+    () => plansQuery.data?.find((plan) => plan.code === selectedPlan) ?? null,
+    [plansQuery.data, selectedPlan],
+  );
+  const selectedPlanInfo = selectedPlanData ? getPlanDisplayInfo(selectedPlanData) : null;
+  const planLabel = selectedPlanInfo?.displayName ?? PLAN_LABELS[selectedPlan];
+  const checkoutPlanId = selectedPlanData?.id ?? null;
 
   const canSubmit = useMemo(
     () =>
@@ -54,8 +60,9 @@ const SignupFree = () => {
       fullName.trim().length >= 3 &&
       email.trim().length >= 3 &&
       password.length >= 6 &&
-      password === confirmPassword,
-    [submitting, fullName, email, password, confirmPassword],
+      password === confirmPassword &&
+      (!isPaidPlan || checkoutPlanId !== null),
+    [submitting, fullName, email, password, confirmPassword, isPaidPlan, checkoutPlanId],
   );
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -131,10 +138,16 @@ const SignupFree = () => {
             ? "Preencha seus dados para criar a conta e seguir direto para o pagamento com cartao de credito."
             : "Preencha os dados para criar sua conta de teste por 30 dias, sem custo e sem precisar de cartao."}
         </p>
+        {plansQuery.isLoading && isPaidPlan ? (
+          <div className="mt-4 rounded-xl border border-border/60 bg-muted/40 p-4 text-sm text-muted-foreground">
+            Carregando detalhes do plano...
+          </div>
+        ) : null}
 
         {isPaidPlan && !success ? (
           <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm text-muted-foreground">
             Depois do cadastro, voce sera redirecionado para o checkout do plano {planLabel}.
+            {selectedPlanInfo?.note ? <span className="block mt-1">{selectedPlanInfo.note}</span> : null}
           </div>
         ) : null}
 
