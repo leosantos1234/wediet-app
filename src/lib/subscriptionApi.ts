@@ -104,10 +104,11 @@ export const getGoogleSignupStartUrl = (selectedPlan: "gratis" | "profissional" 
   const callbackUrl = `${siteBase}/cadastro/google/callback?plan=${encodeURIComponent(selectedPlan)}`;
   const errorUrl = `${siteBase}/cadastro?plan=${encodeURIComponent(selectedPlan)}`;
   const query = new URLSearchParams({
+    selected_plan: selectedPlan,
     success_redirect: callbackUrl,
     error_redirect: errorUrl,
   });
-  return `${API_BASE_URL}/auth/google/start?${query.toString()}`;
+  return `${API_BASE_URL}/auth/google/signup/start?${query.toString()}`;
 };
 
 export async function getSubscriptionInfo(): Promise<SubscriptionInfo> {
