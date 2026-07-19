@@ -8,7 +8,6 @@ import NotFound from "./pages/NotFound.tsx";
 import DashboardPage from "./pages/Dashboard.tsx";
 import PlansPage from "./pages/Plans.tsx";
 import SignupFree from "./pages/SignupFree.tsx";
-import GoogleSignupCallback from "./pages/GoogleSignupCallback.tsx";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +21,6 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/plans" element={<PlansPage />} />
           <Route path="/cadastro" element={<SignupFree />} />
-          <Route path="/cadastro/google/callback" element={<GoogleSignupCallback />} />
           <Route path="/signup-free" element={<SignupFree />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
