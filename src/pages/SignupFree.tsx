@@ -1,9 +1,9 @@
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Eye, EyeOff } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { signupTrialFree } from "@/lib/trialApi";
-import { createCheckout, getPlans } from "@/lib/subscriptionApi";
+import { createCheckout, getGoogleSignupStartUrl, getPlans } from "@/lib/subscriptionApi";
 import { getPlanDisplayInfo } from "@/lib/planCatalog";
 
 type TrialSuccessState = {
@@ -30,6 +30,7 @@ const SignupFree = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [googleSubmitting, setGoogleSubmitting] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState<TrialSuccessState | null>(null);
@@ -53,6 +54,13 @@ const SignupFree = () => {
   const selectedPlanInfo = selectedPlanData ? getPlanDisplayInfo(selectedPlanData) : null;
   const planLabel = selectedPlanInfo?.displayName ?? PLAN_LABELS[selectedPlan];
   const checkoutPlanId = selectedPlanData?.id ?? null;
+
+  useEffect(() => {
+    const googleError = searchParams.get("google_error");
+    if (googleError) {
+      setError(googleError);
+    }
+  }, [searchParams]);
 
   const canSubmit = useMemo(
     () =>
@@ -115,6 +123,13 @@ const SignupFree = () => {
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const onGoogleSignup = () => {
+    setError("");
+    setSuccess(null);
+    setGoogleSubmitting(true);
+    window.location.assign(getGoogleSignupStartUrl(selectedPlan));
   };
 
   return (
@@ -186,7 +201,26 @@ const SignupFree = () => {
             </div>
           </section>
         ) : (
-          <form className="mt-8 space-y-4" onSubmit={onSubmit}>
+          <div className="mt-8 space-y-4">
+            <button
+              type="button"
+              onClick={onGoogleSignup}
+              disabled={googleSubmitting || (isPaidPlan && !checkoutPlanId)}
+              className="flex w-full items-center justify-center gap-3 rounded-xl border bg-white px-4 py-3 font-semibold text-foreground shadow-sm transition-colors hover:bg-muted/40 disabled:opacity-50"
+            >
+              <span className="flex h-5 w-5 items-center justify-center rounded-full border text-sm font-bold text-primary">
+                G
+              </span>
+              {googleSubmitting ? "Conectando com Google..." : "Entrar com Google"}
+            </button>
+
+            <div className="flex items-center gap-3 text-xs text-muted-foreground">
+              <span className="h-px flex-1 bg-border" />
+              <span>ou preencha manualmente</span>
+              <span className="h-px flex-1 bg-border" />
+            </div>
+
+          <form className="space-y-4" onSubmit={onSubmit}>
             <input
               className="w-full rounded-xl border px-4 py-3"
               placeholder="Nome completo"
@@ -278,6 +312,7 @@ const SignupFree = () => {
               </p>
             ) : null}
           </form>
+          </div>
         )}
       </div>
     </main>

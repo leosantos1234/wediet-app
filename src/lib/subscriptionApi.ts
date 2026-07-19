@@ -84,6 +84,33 @@ export async function createCheckout(userId: number, planId: number): Promise<Ch
   );
 }
 
+export async function createMyCheckout(token: string, planId: number): Promise<CheckoutResponse> {
+  return apiRequestWithFallback<CheckoutResponse>(
+    ["/me/create-checkout", "/api/me/create-checkout", "/api/v1/me/create-checkout"],
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        plan_id: planId,
+      }),
+    },
+  );
+}
+
+export const getGoogleSignupStartUrl = (selectedPlan: "gratis" | "profissional" | "premium") => {
+  const siteBase = window.location.origin;
+  const callbackUrl = `${siteBase}/cadastro/google/callback?plan=${encodeURIComponent(selectedPlan)}`;
+  const errorUrl = `${siteBase}/cadastro?plan=${encodeURIComponent(selectedPlan)}`;
+  const query = new URLSearchParams({
+    selected_plan: selectedPlan,
+    success_redirect: callbackUrl,
+    error_redirect: errorUrl,
+  });
+  return `${API_BASE_URL}/auth/google/signup/start?${query.toString()}`;
+};
+
 export async function getSubscriptionInfo(): Promise<SubscriptionInfo> {
   return apiRequestWithFallback<SubscriptionInfo>([
     "/me/subscription",
