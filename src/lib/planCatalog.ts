@@ -117,11 +117,13 @@ export function getPlanDisplayInfo(plan: Plan, billingPeriod: BillingPeriod = "m
   const periodPricing = plan.pricing_by_period?.[billingPeriod];
   const finalPrice = periodPricing?.final_price && periodPricing.final_price > 0 ? periodPricing.final_price : plan.price;
   const basePrice = periodPricing?.base_price && periodPricing.base_price > 0 ? periodPricing.base_price : plan.price;
-  const note = periodPricing?.promotion_name
+  const note = periodPricing?.promotion_name && billingPeriod === "monthly"
     ? `${periodPricing.promotion_name}${periodPricing.promotional_cycles > 1 ? ` (${periodPricing.promotional_cycles} cobranças promocionais)` : ""}.`
     : code === "profissional" && billingPeriod === "monthly"
       ? "Primeiros 3 meses por R$ 49,99. Depois R$ 89,00/mês."
-      : plan.billing_note ?? "";
+      : isFreePlan
+        ? plan.billing_note ?? ""
+        : "renovação automática no cartão de crédito";
 
   return {
     ...copy,
