@@ -108,6 +108,18 @@ const PERIOD_SUFFIX: Record<BillingPeriod, string> = {
   annual: "pagamento anual",
 };
 
+const PERIOD_NOTICE: Record<BillingPeriod, string> = {
+  monthly: "Valor mensal",
+  semiannual: "Valor semestral",
+  annual: "Valor anual",
+};
+
+const PERIOD_RENEWAL: Record<BillingPeriod, string> = {
+  monthly: "Renovacao mensal automatica no cartao de credito.",
+  semiannual: "Renovacao automatica a cada 6 meses no cartao de credito.",
+  annual: "Renovacao automatica a cada 12 meses no cartao de credito.",
+};
+
 export function getPlanDisplayInfo(plan: Plan, billingPeriod: BillingPeriod = "monthly") {
   const code = normalizePlanCode(plan.code);
   const copy = PLAN_COPY[code];
@@ -117,13 +129,13 @@ export function getPlanDisplayInfo(plan: Plan, billingPeriod: BillingPeriod = "m
   const periodPricing = plan.pricing_by_period?.[billingPeriod];
   const finalPrice = periodPricing?.final_price && periodPricing.final_price > 0 ? periodPricing.final_price : plan.price;
   const basePrice = periodPricing?.base_price && periodPricing.base_price > 0 ? periodPricing.base_price : plan.price;
-  const note = periodPricing?.promotion_name && billingPeriod === "monthly"
+  const note = periodPricing?.promotion_name
     ? `${periodPricing.promotion_name}${periodPricing.promotional_cycles > 1 ? ` (${periodPricing.promotional_cycles} cobranças promocionais)` : ""}.`
     : code === "profissional" && billingPeriod === "monthly"
       ? "Primeiros 3 meses por R$ 49,99. Depois R$ 89,00/mês."
       : isFreePlan
         ? plan.billing_note ?? ""
-        : "renovação automática no cartão de crédito";
+        : `${PERIOD_NOTICE[billingPeriod]}: ${formatPrice(finalPrice)}. ${PERIOD_RENEWAL[billingPeriod]}`;
 
   return {
     ...copy,

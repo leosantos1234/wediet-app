@@ -56,8 +56,13 @@ const SignupFree = () => {
     () => plansQuery.data?.find((plan) => plan.code === selectedPlan) ?? null,
     [plansQuery.data, selectedPlan],
   );
-  const selectedPlanInfo = selectedPlanData ? getPlanDisplayInfo(selectedPlanData) : null;
+  const selectedPlanInfo = selectedPlanData ? getPlanDisplayInfo(selectedPlanData, billingPeriod) : null;
   const planLabel = selectedPlanInfo?.displayName ?? PLAN_LABELS[selectedPlan];
+  const periodLabel: Record<typeof billingPeriod, string> = {
+    monthly: "Mensal",
+    semiannual: "Semestral",
+    annual: "Anual",
+  };
   const checkoutPlanId = selectedPlanData?.id ?? null;
 
   const canSubmit = useMemo(
@@ -127,15 +132,17 @@ const SignupFree = () => {
   return (
     <main className="min-h-screen bg-muted/30 py-14 px-4">
       <div className="mx-auto max-w-2xl rounded-2xl border bg-card p-6 md:p-10 shadow-sm">
-        <button
-          type="button"
-          onClick={() => navigate("/#pricing")}
-          className="text-sm text-muted-foreground hover:text-foreground"
-        >
-          Voltar aos planos
-        </button>
-        <div className="mt-4 inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary">
-          {isPaidPlan ? planLabel : "Sem cartao de credito"}
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <button
+            type="button"
+            onClick={() => navigate("/#pricing")}
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
+            Voltar aos planos
+          </button>
+          <div className="inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary">
+            {isPaidPlan ? `Plano escolhido: ${planLabel}` : "Sem cartao de credito"}
+          </div>
         </div>
         <h1 className="mt-4 text-3xl font-extrabold">
           {isPaidPlan ? `Criar conta do plano ${planLabel}` : "Teste gratis por 30 dias"}
@@ -153,7 +160,7 @@ const SignupFree = () => {
 
         {isPaidPlan && !success ? (
           <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm text-muted-foreground">
-            Depois do cadastro, voce sera redirecionado para o checkout do plano {planLabel}.
+            Depois do cadastro, voce sera redirecionado para o checkout do plano {planLabel} ({periodLabel[billingPeriod]}).
             {selectedPlanInfo?.note ? (
               <span className="mt-3 block rounded-lg border border-primary/15 bg-white/70 px-3 py-2 font-medium text-primary/90">
                 {selectedPlanInfo.note}
