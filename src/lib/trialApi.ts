@@ -7,6 +7,7 @@ type TrialSignupPayload = {
   specialty?: string;
   specializations?: string[];
   selected_plan?: "gratis" | "profissional" | "premium";
+  referral_code?: string;
 };
 
 type TrialSignupResponse = {

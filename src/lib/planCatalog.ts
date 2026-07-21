@@ -1,6 +1,7 @@
-import type { Plan } from "@/lib/subscriptionApi";
+﻿import type { Plan } from "@/lib/subscriptionApi";
 
 export type PlanCode = "gratis" | "profissional" | "premium";
+export type BillingPeriod = "monthly" | "semiannual" | "annual";
 
 type PlanCopy = {
   description: string;
@@ -95,14 +96,30 @@ export function formatPrice(value: number): string {
   }).format(value);
 }
 
-export function getPlanDisplayInfo(plan: Plan) {
+const PERIOD_LABELS: Record<BillingPeriod, string> = {
+  monthly: "/mes",
+  semiannual: "semestral",
+  annual: "anual",
+};
+
+const PERIOD_SUFFIX: Record<BillingPeriod, string> = {
+  monthly: "por mes",
+  semiannual: "pagamento semestral",
+  annual: "pagamento anual",
+};
+
+export function getPlanDisplayInfo(plan: Plan, billingPeriod: BillingPeriod = "monthly") {
   const code = normalizePlanCode(plan.code);
   const copy = PLAN_COPY[code];
   const trialDays = plan.trial_days ?? 30;
   const isFreePlan = code === "gratis";
   const displayName = code === "gratis" ? "Grátis" : plan.name;
-  const note =
-    code === "profissional"
+  const periodPricing = plan.pricing_by_period?.[billingPeriod];
+  const finalPrice = periodPricing?.final_price && periodPricing.final_price > 0 ? periodPricing.final_price : plan.price;
+  const basePrice = periodPricing?.base_price && periodPricing.base_price > 0 ? periodPricing.base_price : plan.price;
+  const note = periodPricing?.promotion_name
+    ? `${periodPricing.promotion_name}${periodPricing.promotional_cycles > 1 ? ` (${periodPricing.promotional_cycles} cobranças promocionais)` : ""}.`
+    : code === "profissional" && billingPeriod === "monthly"
       ? "Primeiros 3 meses por R$ 49,99. Depois R$ 89,00/mês."
       : plan.billing_note ?? "";
 
@@ -110,10 +127,12 @@ export function getPlanDisplayInfo(plan: Plan) {
     ...copy,
     code,
     displayName,
-    priceLabel: isFreePlan ? "Gratis" : formatPrice(plan.price),
-    periodLabel: isFreePlan ? `por ${trialDays} dias` : "/mes",
+    priceLabel: isFreePlan ? "Grátis" : formatPrice(finalPrice),
+    periodLabel: isFreePlan ? `por ${trialDays} dias` : PERIOD_LABELS[billingPeriod],
+    periodDescription: isFreePlan ? "30 dias grátis" : PERIOD_SUFFIX[billingPeriod],
+    basePriceLabel: !isFreePlan && basePrice > finalPrice ? formatPrice(basePrice) : null,
     trialDays,
     note,
-    actionUrl: `/cadastro?plan=${code}`,
+    actionUrl: `/cadastro?plan=${code}&period=${billingPeriod}`,
   };
 }

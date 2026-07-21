@@ -1,12 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { getPlans } from "@/lib/subscriptionApi";
-import { BASE_FEATURES, PREMIUM_FEATURES, getPlanDisplayInfo, sortPlans } from "@/lib/planCatalog";
+import { BASE_FEATURES, PREMIUM_FEATURES, getPlanDisplayInfo, sortPlans, type BillingPeriod } from "@/lib/planCatalog";
+
+const billingPeriods: Array<{ value: BillingPeriod; label: string; badge?: string }> = [
+  { value: "monthly", label: "Mensal" },
+  { value: "semiannual", label: "Semestral" },
+  { value: "annual", label: "Anual", badge: "Popular" },
+];
 
 const PricingSection = () => {
+  const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("monthly");
   const plansQuery = useQuery({
     queryKey: ["public-plans"],
     queryFn: getPlans,
@@ -39,6 +47,27 @@ const PricingSection = () => {
           <p className="text-muted-foreground max-w-lg mx-auto">
             Compare os recursos e comece pelo plano que faz mais sentido para sua rotina.
           </p>
+          <div className="mx-auto mt-8 inline-flex rounded-full bg-slate-100 p-2 shadow-inner">
+            {billingPeriods.map((period) => (
+              <button
+                key={period.value}
+                type="button"
+                onClick={() => setBillingPeriod(period.value)}
+                className={`relative min-w-[96px] rounded-full px-5 py-2 text-sm font-semibold transition ${
+                  billingPeriod === period.value
+                    ? "bg-white text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {period.badge && (
+                  <span className="absolute -top-6 left-1/2 -translate-x-1/2 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold text-primary-foreground shadow-sm">
+                    {period.badge}
+                  </span>
+                )}
+                {period.label}
+              </button>
+            ))}
+          </div>
         </motion.div>
 
         {plansQuery.isLoading && (
@@ -55,7 +84,7 @@ const PricingSection = () => {
 
         <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto items-stretch">
           {sortPlans(plansQuery.data ?? []).map((plan, i) => {
-            const planInfo = getPlanDisplayInfo(plan);
+            const planInfo = getPlanDisplayInfo(plan, billingPeriod);
             const featureItems = planInfo.code === "premium" ? PREMIUM_FEATURES : BASE_FEATURES;
 
             return (
@@ -88,9 +117,15 @@ const PricingSection = () => {
                 </div>
 
                 <div className="relative mt-6 flex items-end gap-2">
+                  {planInfo.basePriceLabel && (
+                    <span className="pb-1 text-sm font-semibold text-muted-foreground line-through">
+                      {planInfo.basePriceLabel}
+                    </span>
+                  )}
                   <span className="text-4xl font-extrabold tracking-tight">{planInfo.priceLabel}</span>
                   <span className="pb-1 text-sm font-medium text-muted-foreground">{planInfo.periodLabel}</span>
                 </div>
+                <p className="relative mt-1 text-xs font-medium text-muted-foreground">{planInfo.periodDescription}</p>
 
                 {planInfo.note && (
                   <p

@@ -3,6 +3,13 @@ export type Plan = {
   code: "gratis" | "profissional" | "premium";
   name: string;
   price: number;
+  pricing_by_period?: Record<"monthly" | "semiannual" | "annual", {
+    base_price: number;
+    final_price: number;
+    discount: number;
+    promotion_name: string | null;
+    promotional_cycles: number;
+  }> | null;
   billing_note: string | null;
   trial_days: number | null;
   features: Record<string, boolean>;
@@ -19,6 +26,11 @@ export type SubscriptionInfo = {
 
 type CheckoutResponse = {
   checkout_url: string;
+  contract_id: number;
+  base_price: number;
+  discount: number;
+  final_price: number;
+  applied_benefit: string | null;
 };
 
 const resolveApiBaseUrl = (): string => {
@@ -71,7 +83,7 @@ export async function getPlans(): Promise<Plan[]> {
   return apiRequestWithFallback<Plan[]>(["/plans", "/api/plans", "/api/v1/plans"]);
 }
 
-export async function createCheckout(userId: number, planId: number): Promise<CheckoutResponse> {
+export async function createCheckout(userId: number, planId: number, billingPeriod: "monthly" | "semiannual" | "annual" = "monthly"): Promise<CheckoutResponse> {
   return apiRequestWithFallback<CheckoutResponse>(
     ["/create-checkout", "/api/create-checkout", "/api/v1/create-checkout"],
     {
@@ -79,6 +91,7 @@ export async function createCheckout(userId: number, planId: number): Promise<Ch
       body: JSON.stringify({
         user_id: userId,
         plan_id: planId,
+        billing_period: billingPeriod,
       }),
     },
   );

@@ -1,46 +1,31 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useToast } from "@/hooks/use-toast";
-import { BASE_FEATURES, PREMIUM_FEATURES, getPlanDisplayInfo, sortPlans } from "@/lib/planCatalog";
-import { createCheckout, getPlans } from "@/lib/subscriptionApi";
+import { BASE_FEATURES, PREMIUM_FEATURES, getPlanDisplayInfo, sortPlans, type BillingPeriod } from "@/lib/planCatalog";
+import { getPlans } from "@/lib/subscriptionApi";
 
-const DEFAULT_USER_ID = 1;
+const billingPeriods: Array<{ value: BillingPeriod; label: string }> = [
+  { value: "monthly", label: "Mensal" },
+  { value: "semiannual", label: "Semestral" },
+  { value: "annual", label: "Anual" },
+];
 
 const PlansPage = () => {
   const [loadingPlanId, setLoadingPlanId] = useState<number | null>(null);
-  const { toast } = useToast();
+  const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("monthly");
+  const navigate = useNavigate();
 
   const plansQuery = useQuery({
     queryKey: ["plans"],
     queryFn: getPlans,
   });
 
-  const handleSubscribe = async (planId: number) => {
-    try {
-      setLoadingPlanId(planId);
-      const data = await createCheckout(DEFAULT_USER_ID, planId);
-      window.location.href = data.checkout_url;
-    } catch (error) {
-      let message = "Tente novamente em instantes.";
-      if (error instanceof Error) {
-        try {
-          const parsed = JSON.parse(error.message) as { detail?: string };
-          message = parsed.detail ?? error.message;
-        } catch {
-          message = error.message;
-        }
-      }
-      toast({
-        title: "Erro ao iniciar assinatura",
-        description: message,
-        variant: "destructive",
-      });
-    } finally {
-      setLoadingPlanId(null);
-    }
+  const handleSubscribe = (planId: number, planCode: string) => {
+    setLoadingPlanId(planId);
+    navigate(`/cadastro?plan=${encodeURIComponent(planCode)}&period=${billingPeriod}`);
   };
 
   return (
@@ -48,6 +33,20 @@ const PlansPage = () => {
       <div className="max-w-5xl mx-auto">
         <h1 className="text-3xl font-bold mb-2">Planos NuDiet</h1>
         <p className="text-muted-foreground mb-8">Assine um plano mensal e libere todos os recursos.</p>
+        <div className="mb-8 inline-flex rounded-full bg-slate-100 p-2">
+          {billingPeriods.map((period) => (
+            <button
+              key={period.value}
+              type="button"
+              onClick={() => setBillingPeriod(period.value)}
+              className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+                billingPeriod === period.value ? "bg-white shadow-sm" : "text-muted-foreground"
+              }`}
+            >
+              {period.label}
+            </button>
+          ))}
+        </div>
 
         {plansQuery.isLoading && <p>Carregando planos...</p>}
         {plansQuery.isError && (
@@ -62,7 +61,7 @@ const PlansPage = () => {
         {plansQuery.data && (
           <div className="grid md:grid-cols-3 gap-6">
             {sortPlans(plansQuery.data).map((plan) => {
-              const planInfo = getPlanDisplayInfo(plan);
+              const planInfo = getPlanDisplayInfo(plan, billingPeriod);
               const featureItems = planInfo.code === "premium" ? PREMIUM_FEATURES : BASE_FEATURES;
 
               return (
@@ -70,8 +69,12 @@ const PlansPage = () => {
                   <CardHeader>
                     <CardTitle>{planInfo.displayName}</CardTitle>
                     <CardDescription>
+                      {planInfo.basePriceLabel ? (
+                        <span className="mr-2 text-sm font-semibold line-through">{planInfo.basePriceLabel}</span>
+                      ) : null}
                       <span className="text-2xl font-bold">{planInfo.priceLabel}</span>
                       <span className="ml-1">{planInfo.periodLabel}</span>
+                      <span className="mt-1 block text-xs">{planInfo.periodDescription}</span>
                     </CardDescription>
                     {planInfo.note ? <p className="text-sm text-muted-foreground">{planInfo.note}</p> : null}
                   </CardHeader>
@@ -87,7 +90,7 @@ const PlansPage = () => {
 
                     <Button
                       className="w-full"
-                      onClick={() => void handleSubscribe(plan.id)}
+                      onClick={() => handleSubscribe(plan.id, planInfo.code)}
                       disabled={loadingPlanId === plan.id}
                     >
                       {loadingPlanId === plan.id ? "Redirecionando..." : "Assinar"}

@@ -1,7 +1,7 @@
 import { FormEvent, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Eye, EyeOff } from "lucide-react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { signupTrialFree } from "@/lib/trialApi";
 import { createCheckout, getPlans } from "@/lib/subscriptionApi";
 import { getPlanDisplayInfo } from "@/lib/planCatalog";
@@ -20,6 +20,7 @@ const PLAN_LABELS: Record<"gratis" | "profissional" | "premium", string> = {
 
 const SignupFree = () => {
   const navigate = useNavigate();
+  const { code: inviteCodeParam } = useParams<{ code?: string }>();
   const [searchParams] = useSearchParams();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,6 +32,10 @@ const SignupFree = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "semiannual" | "annual">(() => {
+    const period = searchParams.get("period");
+    return period === "semiannual" || period === "annual" ? period : "monthly";
+  });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState<TrialSuccessState | null>(null);
   const plansQuery = useQuery({
@@ -39,11 +44,12 @@ const SignupFree = () => {
   });
 
   const selectedPlan = useMemo<"gratis" | "profissional" | "premium">(() => {
+    if (inviteCodeParam) return "premium";
     const raw = (searchParams.get("plan") || "gratis").toLowerCase();
     if (raw === "premium") return "premium";
     if (raw === "profissional") return "profissional";
     return "gratis";
-  }, [searchParams]);
+  }, [inviteCodeParam, searchParams]);
 
   const isPaidPlan = selectedPlan !== "gratis";
   const selectedPlanData = useMemo(
@@ -89,6 +95,7 @@ const SignupFree = () => {
           .map((item) => item.trim())
           .filter(Boolean),
         selected_plan: selectedPlan,
+        referral_code: inviteCodeParam?.trim().toUpperCase() || searchParams.get("ref")?.trim().toUpperCase() || undefined,
       });
 
       if (isPaidPlan) {
@@ -100,7 +107,7 @@ const SignupFree = () => {
           throw new Error("Nao foi possivel identificar a conta criada para o checkout.");
         }
 
-        const checkout = await createCheckout(created.user_id, checkoutPlanId);
+        const checkout = await createCheckout(created.user_id, checkoutPlanId, billingPeriod);
         window.location.href = checkout.checkout_url;
         return;
       }
@@ -187,6 +194,16 @@ const SignupFree = () => {
           </section>
         ) : (
           <form className="mt-8 space-y-4" onSubmit={onSubmit}>
+            {isPaidPlan ? (
+              <label className="block text-sm font-medium">
+                Periodicidade
+                <select className="mt-1 w-full rounded-xl border bg-background px-4 py-3" value={billingPeriod} onChange={(event) => setBillingPeriod(event.target.value as typeof billingPeriod)}>
+                  <option value="monthly">Mensal</option>
+                  <option value="semiannual">Semestral</option>
+                  <option value="annual">Anual</option>
+                </select>
+              </label>
+            ) : null}
             <input
               className="w-full rounded-xl border px-4 py-3"
               placeholder="Nome completo"
