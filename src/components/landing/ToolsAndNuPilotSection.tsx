@@ -237,21 +237,14 @@ const ToolsAndNuPilotSection = () => {
   return (
     <section id="features" className="bg-[#f6f8f6] py-16 sm:py-20">
       <div className="mx-auto w-full max-w-[1500px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1680px]">
-        <header className="mx-auto max-w-3xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
-            Tudo o que você precisa, em um só lugar
-          </span>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+        <header className="mx-auto max-w-2xl text-center">
+          <h2 className="text-2xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-3xl lg:text-[34px]">
             Soluções completas para uma prática clínica
             <span className="block">mais eficiente e centrada em resultados.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600">
-            Conheça as principais ferramentas que conectam gestão, atendimento, acompanhamento e
-            inteligência clínica em uma única experiência.
-          </p>
         </header>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {tools.map((item) => (
             <ToolCard key={item.title} item={item} />
           ))}
