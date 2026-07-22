@@ -6,17 +6,17 @@ const ambassadorHighlights = [
   {
     icon: Users,
     title: "Indique colegas",
-    description: "Compartilhe seu convite com nutricionistas que tambem podem se beneficiar do NuDiet.",
+    description: "Compartilhe seu convite com nutricionistas que também podem se beneficiar do NuDiet.",
   },
   {
     icon: CheckCircle2,
-    title: "Indicacoes ativas contam",
-    description: "O beneficio considera profissionais indicados que estejam ativos e adimplentes.",
+    title: "Indicações ativas contam",
+    description: "O benefício considera profissionais indicados que estejam ativos e adimplentes.",
   },
   {
     icon: BadgePercent,
     title: "Ganhe desconto",
-    description: "Com 5 indicacoes validas, sua proxima mensalidade pode receber 100% de desconto.",
+    description: "Com 5 indicações válidas, sua próxima mensalidade pode receber 100% de desconto.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function AmbassadorsSection() {
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
               Profissionais ativos podem indicar outros nutricionistas para o NuDiet. Quando suas
-              indicacoes tambem estiverem ativas, voce acumula beneficios para a proxima cobranca.
+              indicações também estiverem ativas, você acumula benefícios para a próxima cobrança.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Button asChild className="h-12 rounded-full px-6 font-semibold">
@@ -66,7 +66,7 @@ export default function AmbassadorsSection() {
         </div>
 
         <p className="mx-auto mt-8 max-w-6xl rounded-2xl border border-primary/15 bg-primary/5 px-5 py-4 text-sm leading-relaxed text-primary/90">
-          Beneficio disponivel para assinantes ativos dos planos pagos. Nao ha comissao em dinheiro:
+          Benefício disponível para assinantes ativos dos planos pagos. Não há comissão em dinheiro:
           o programa gera desconto na assinatura conforme as regras vigentes.
         </p>
       </div>
