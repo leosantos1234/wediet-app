@@ -6,7 +6,6 @@ import BenefitsSection from "@/components/landing/BenefitsSection";
 import ProductPreviewSection from "@/components/landing/ProductPreviewSection";
 import EcosystemProofSection from "@/components/landing/EcosystemProofSection";
 import PricingSection from "@/components/landing/PricingSection";
-import AmbassadorsSection from "@/components/landing/AmbassadorsSection";
 import CtaSection from "@/components/landing/CtaSection";
 import FaqSection from "@/components/landing/FaqSection";
 import Footer from "@/components/landing/Footer";
@@ -23,7 +22,6 @@ const Index = () => {
       <ProductPreviewSection />
       <EcosystemProofSection />
       <PricingSection />
-      <AmbassadorsSection />
       <CtaSection />
       <FaqSection />
       <Footer />
