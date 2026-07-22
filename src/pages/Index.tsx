@@ -1,7 +1,6 @@
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroPremiumSection";
-import SocialProofSection from "@/components/landing/SocialProofSection";
-import FeaturesTabsSection from "@/components/landing/FeaturesTabsSection";
+import ToolsAndNuPilotSection from "@/components/landing/ToolsAndNuPilotSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import BenefitsSection from "@/components/landing/BenefitsSection";
 import ProductPreviewSection from "@/components/landing/ProductPreviewSection";
@@ -17,8 +16,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
-      <SocialProofSection />
-      <FeaturesTabsSection />
+      <ToolsAndNuPilotSection />
       <HowItWorksSection />
       <BenefitsSection />
       <ProductPreviewSection />
