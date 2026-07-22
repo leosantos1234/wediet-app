@@ -70,8 +70,8 @@ export default function AmbassadorsSection() {
                   <DialogHeader>
                     <DialogTitle>Regras do Programa Embaixadores</DialogTitle>
                     <DialogDescription>
-                      O desconto é aplicado na próxima mensalidade elegível, conforme o número de
-                      indicações válidas.
+                      O desconto é aplicado na próxima mensalidade, quando as indicações estiverem
+                      válidas.
                     </DialogDescription>
                   </DialogHeader>
 
@@ -79,7 +79,11 @@ export default function AmbassadorsSection() {
                     {discountTiers.map((tier) => (
                       <div
                         key={tier.referrals}
-                        className="rounded-2xl border border-primary/15 bg-primary/5 p-4 text-center"
+                        className={`rounded-2xl border p-4 text-center ${
+                          tier.referrals === 5
+                            ? "border-primary/40 bg-primary/10 shadow-sm"
+                            : "border-primary/15 bg-primary/5"
+                        }`}
                       >
                         <p className="text-xs font-medium text-muted-foreground">
                           {tier.referrals} indicação{tier.referrals > 1 ? "ões" : ""}
