@@ -1,6 +1,14 @@
 import { ArrowRight, BadgePercent, CheckCircle2, Share2, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const ambassadorHighlights = [
   {
@@ -18,6 +26,14 @@ const ambassadorHighlights = [
     title: "Ganhe desconto",
     description: "Com 5 indicações válidas, sua próxima mensalidade pode receber 100% de desconto.",
   },
+];
+
+const discountTiers = [
+  { referrals: 1, discount: "10%" },
+  { referrals: 2, discount: "20%" },
+  { referrals: 3, discount: "30%" },
+  { referrals: 4, discount: "40%" },
+  { referrals: 5, discount: "100%" },
 ];
 
 export default function AmbassadorsSection() {
@@ -39,13 +55,53 @@ export default function AmbassadorsSection() {
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Button asChild className="h-12 rounded-full px-6 font-semibold">
-                <Link to="/cadastro?plan=premium&period=annual">
+                <Link to="/cadastro?plan=premium&period=monthly">
                   Assinar e indicar <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="h-12 rounded-full px-6 font-semibold">
-                <a href="#faq">Ver regras principais</a>
-              </Button>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="outline" className="h-12 rounded-full px-6 font-semibold">
+                    Ver regras principais
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-[560px] rounded-2xl">
+                  <DialogHeader>
+                    <DialogTitle>Regras do Programa Embaixadores</DialogTitle>
+                    <DialogDescription>
+                      O desconto é aplicado na próxima mensalidade elegível, conforme o número de
+                      indicações válidas.
+                    </DialogDescription>
+                  </DialogHeader>
+
+                  <div className="grid gap-3 sm:grid-cols-5">
+                    {discountTiers.map((tier) => (
+                      <div
+                        key={tier.referrals}
+                        className="rounded-2xl border border-primary/15 bg-primary/5 p-4 text-center"
+                      >
+                        <p className="text-xs font-medium text-muted-foreground">
+                          {tier.referrals} indicação{tier.referrals > 1 ? "ões" : ""}
+                        </p>
+                        <p className="mt-2 text-2xl font-extrabold text-primary">{tier.discount}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="space-y-2 rounded-2xl border bg-muted/30 p-4 text-sm leading-relaxed text-muted-foreground">
+                    <p>As indicações precisam estar com plano pago ativo e adimplente.</p>
+                    <p>Não há comissão em dinheiro; o benefício é desconto na assinatura.</p>
+                    <p>Cancelamentos, inadimplência ou contas duplicadas podem invalidar o benefício.</p>
+                  </div>
+
+                  <Button asChild className="h-11 rounded-full font-semibold">
+                    <Link to="/cadastro?plan=premium&period=monthly">
+                      Assinar plano mensal <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
 
