@@ -70,20 +70,20 @@ const HeroPremiumSection = () => {
         <div className="absolute bottom-[18%] left-[46%] h-1 w-1 rounded-full bg-emerald-200/60" />
       </div>
 
-      <div className="container relative pb-8">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="relative mx-auto w-full max-w-[1500px] px-4 pb-8 sm:px-6 lg:px-8 2xl:max-w-[1680px]">
+        <div className="grid items-center gap-8 lg:grid-cols-[0.88fr_1.12fr] xl:gap-10 2xl:grid-cols-[0.82fr_1.18fr]">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="relative z-10 max-w-[650px] py-4 md:py-6"
+            className="relative z-10 max-w-[660px] py-4 md:py-6 xl:max-w-[700px]"
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/30 bg-emerald-300/5 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-emerald-300">
               <span className="h-1.5 w-1.5 rounded-full bg-[#2ee6a6] shadow-[0_0_12px_#2ee6a6]" />
               Plataforma clínica inteligente
             </div>
 
-            <h1 className="mt-6 max-w-[620px] text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-[64px]">
+            <h1 className="mt-6 max-w-[660px] text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-[64px] 2xl:text-[72px]">
               A plataforma completa para a nova{" "}
               <span className="bg-gradient-to-r from-emerald-300 to-green-400 bg-clip-text text-transparent">
                 nutrição clínica.
@@ -129,7 +129,7 @@ const HeroPremiumSection = () => {
             initial={{ opacity: 0, x: 28 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="relative z-10 pb-12 pt-3"
+            className="relative z-10 pb-12 pt-3 lg:-mr-3 2xl:-mr-8"
           >
             <LaptopMockup />
             <PhoneMockup />
@@ -172,12 +172,12 @@ const MiniChart = () => (
 );
 
 const LaptopMockup = () => (
-  <div className="relative mx-auto w-full max-w-[720px]">
+  <div className="relative mx-auto w-full max-w-[720px] xl:max-w-[780px] 2xl:max-w-[860px]">
     <div className="absolute -inset-8 rounded-full bg-emerald-400/10 blur-3xl" />
     <div className="relative rounded-[26px] border border-white/15 bg-[#080d13] p-2.5 shadow-[0_30px_80px_rgba(0,0,0,0.34)]">
       <div className="overflow-hidden rounded-[20px] border border-white/10 bg-[#071b28]">
-        <div className="flex h-[350px] sm:h-[405px]">
-          <aside className="hidden w-[132px] shrink-0 border-r border-white/5 bg-[#082334] p-3 sm:block">
+        <div className="flex h-[350px] sm:h-[405px] 2xl:h-[440px]">
+          <aside className="hidden w-[132px] shrink-0 border-r border-white/5 bg-[#082334] p-3 sm:block 2xl:w-[148px] 2xl:p-4">
             <div className="mb-5 flex items-center gap-2 text-[10px] font-black text-white">
               <Leaf className="h-3.5 w-3.5 text-emerald-300" />
               <span>NuDiet</span>
