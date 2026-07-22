@@ -53,7 +53,7 @@ const Stat = ({ label, value, trend }: { label: string; value: string; trend: st
 );
 
 const BodyMock = () => (
-  <div className="rounded-[2rem] border border-white/10 bg-gradient-to-b from-[#0c2d3a] to-[#08202c] p-5 shadow-[0_28px_80px_rgba(0,0,0,0.28)]">
+  <div className="rounded-[1.75rem] border border-white/10 bg-gradient-to-b from-[#0c2d3a] to-[#08202c] p-4 shadow-[0_28px_80px_rgba(0,0,0,0.28)]">
     <div className="grid gap-3 sm:grid-cols-2">
       <div className="rounded-xl bg-white/[0.045] px-4 py-3 text-center">
         <p className="text-sm font-medium text-white">Avaliação inicial</p>
@@ -65,17 +65,17 @@ const BodyMock = () => (
       </div>
     </div>
 
-    <div className="mt-5 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-      <div className="relative flex min-h-[360px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.055] to-transparent">
-        <div className="relative h-[310px] w-[120px]">
+    <div className="mt-4 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="relative flex min-h-[300px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.055] to-transparent">
+        <div className="relative h-[270px] w-[108px]">
           <div className="absolute left-1/2 top-3 h-14 w-14 -translate-x-1/2 rounded-full border border-emerald-300/50 bg-orange-200/40" />
-          <div className="absolute left-1/2 top-16 h-36 w-20 -translate-x-1/2 rounded-[40%_40%_28%_28%] border border-emerald-300/40 bg-orange-300/20" />
-          <div className="absolute left-[28px] top-[80px] h-36 w-8 rotate-6 rounded-full bg-orange-200/30" />
-          <div className="absolute right-[28px] top-[80px] h-36 w-8 -rotate-6 rounded-full bg-orange-200/30" />
-          <div className="absolute left-[38px] top-[190px] h-28 w-8 rounded-full bg-orange-200/30" />
-          <div className="absolute right-[38px] top-[190px] h-28 w-8 rounded-full bg-orange-200/30" />
+          <div className="absolute left-1/2 top-16 h-32 w-[72px] -translate-x-1/2 rounded-[40%_40%_28%_28%] border border-emerald-300/40 bg-orange-300/20" />
+          <div className="absolute left-[25px] top-[78px] h-32 w-7 rotate-6 rounded-full bg-orange-200/30" />
+          <div className="absolute right-[25px] top-[78px] h-32 w-7 -rotate-6 rounded-full bg-orange-200/30" />
+          <div className="absolute left-[34px] top-[176px] h-24 w-7 rounded-full bg-orange-200/30" />
+          <div className="absolute right-[34px] top-[176px] h-24 w-7 rounded-full bg-orange-200/30" />
           <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-emerald-300/60" />
-          {[54, 126, 212, 290].map((top) => (
+          {[48, 110, 184, 252].map((top) => (
             <div
               key={top}
               className="absolute left-0 right-0 border-t border-dashed border-slate-500/50"
@@ -87,7 +87,7 @@ const BodyMock = () => (
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         <Stat label="Composição corporal" value="24,7%" trend="↓ 3,2%" />
         <Stat label="Massa magra" value="48,6 kg" trend="↑ 2,1 kg" />
         <Stat label="Massa gorda" value="16,1 kg" trend="↓ 2,4 kg" />
@@ -103,14 +103,14 @@ const BodyMock = () => (
 );
 
 const Chart = () => (
-  <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-5">
+  <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-4">
     <div className="flex items-center justify-between">
       <p className="text-sm font-semibold text-white">Evolução de % de gordura</p>
       <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
         -3,2%
       </span>
     </div>
-    <svg viewBox="0 0 360 160" className="mt-5 h-36 w-full" aria-hidden="true">
+    <svg viewBox="0 0 360 160" className="mt-4 h-28 w-full" aria-hidden="true">
       <defs>
         <linearGradient id="analise360Chart" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#2dd4bf" />
@@ -141,7 +141,7 @@ const Chart = () => (
 );
 
 const Compare = () => (
-  <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-5">
+  <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-4">
     <div className="flex items-center justify-between">
       <p className="text-sm font-semibold text-white">Comparação visual</p>
       <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">
@@ -156,8 +156,8 @@ const Compare = () => (
             index === 1 ? "border-emerald-400" : "border-white/10"
           } bg-black/20`}
         >
-          <div className="flex h-32 items-end justify-center bg-gradient-to-b from-white/[0.06] to-transparent">
-            <div className="h-24 w-16 rounded-t-[45%] bg-orange-200/20" />
+          <div className="flex h-24 items-end justify-center bg-gradient-to-b from-white/[0.06] to-transparent">
+            <div className="h-20 w-14 rounded-t-[45%] bg-orange-200/20" />
           </div>
           <div className="border-t border-white/10 px-3 py-2 text-center">
             <p className={`text-xs font-semibold ${index === 1 ? "text-emerald-300" : "text-white"}`}>
@@ -172,18 +172,18 @@ const Compare = () => (
 );
 
 const Report = () => (
-  <div className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-5 sm:grid-cols-[1fr_160px] sm:items-center">
+  <div className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-4 sm:grid-cols-[1fr_150px] sm:items-center">
     <div>
       <p className="text-sm font-semibold text-white">Relatório profissional</p>
       <p className="mt-3 text-sm leading-6 text-slate-400">
         Gere um relatório completo com análises, indicadores e gráficos de evolução.
       </p>
-      <span className="mt-5 inline-flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm font-semibold text-white">
+      <span className="mt-4 inline-flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-2.5 text-sm font-semibold text-white">
         Gerar relatório
         <FileText className="h-4 w-4 text-emerald-300" />
       </span>
     </div>
-    <div className="mx-auto h-28 w-40 rotate-3 rounded-lg bg-white p-3 shadow-2xl">
+    <div className="mx-auto h-24 w-36 rotate-3 rounded-lg bg-white p-3 shadow-2xl">
       <div className="h-2 w-20 rounded bg-slate-200" />
       <div className="mt-3 grid grid-cols-[42px_1fr] gap-3">
         <div className="h-16 rounded bg-emerald-100" />
@@ -201,32 +201,32 @@ const Analise360Section = () => {
   return (
     <section
       id="analise-360"
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_12%,rgba(45,212,163,0.16),transparent_26rem),radial-gradient(circle_at_86%_18%,rgba(14,165,233,0.12),transparent_28rem),linear-gradient(135deg,#061827_0%,#08283A_52%,#053342_100%)] py-16 text-white md:py-20"
+      className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_12%,rgba(45,212,163,0.16),transparent_26rem),radial-gradient(circle_at_86%_18%,rgba(14,165,233,0.12),transparent_28rem),linear-gradient(135deg,#061827_0%,#08283A_52%,#053342_100%)] py-10 text-white md:py-12"
     >
       <div className="pointer-events-none absolute -right-48 top-12 h-[520px] w-[520px] rounded-full bg-emerald-400/10 blur-3xl" />
 
       <div className="relative mx-auto w-full max-w-[1500px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1680px]">
-        <div className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div>
             <div className="inline-flex rounded-full border border-emerald-400/40 bg-emerald-400/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
               Avaliação corporal inteligente
             </div>
-            <h2 className="mt-7 text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl md:text-6xl">
+            <h2 className="mt-5 text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl md:text-[56px]">
               Conheça a
               <span className="block bg-gradient-to-r from-emerald-300 to-lime-300 bg-clip-text text-transparent">
                 Análise 360.
               </span>
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            <p className="mt-4 max-w-xl text-base leading-7 text-slate-300">
               Uma visão mais clara e completa da evolução corporal.
             </p>
-            <p className="mt-5 max-w-xl text-base leading-7 text-slate-400">
+            <p className="mt-4 max-w-xl text-sm leading-6 text-slate-400">
               A partir de fotos padronizadas, a Análise 360 registra, compara e acompanha mudanças
               corporais ao longo do acompanhamento. Tudo integrado ao prontuário, à evolução clínica
               e ao plano alimentar.
             </p>
 
-            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {benefits.map(({ icon: Icon, title, text }) => (
                 <div key={title} className="flex gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10">
@@ -240,17 +240,17 @@ const Analise360Section = () => {
               ))}
             </div>
 
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href="/#pricing"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-400 px-6 py-4 text-base font-semibold text-slate-950 transition hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5"
               >
                 Explorar a Análise 360
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
                 href="#faq"
-                className="inline-flex items-center justify-center rounded-xl border border-emerald-400/30 px-6 py-4 text-base font-semibold text-white transition hover:bg-white/[0.055]"
+                className="inline-flex items-center justify-center rounded-xl border border-emerald-400/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.055]"
               >
                 Ver exemplo de análise
               </a>
@@ -271,13 +271,13 @@ const Analise360Section = () => {
           </div>
         </div>
 
-        <div className="mt-12 rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-5 sm:p-7">
-          <div className="grid gap-7 lg:grid-cols-[1.2fr_repeat(4,1fr)] lg:items-center">
+        <div className="mt-8 rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-4 sm:p-5">
+          <div className="grid gap-5 lg:grid-cols-[1.2fr_repeat(4,1fr)] lg:items-center">
             <div className="flex items-center gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10">
                 <Sparkles className="h-6 w-6 text-emerald-300" />
               </div>
-              <p className="text-xl font-semibold leading-8">
+              <p className="text-base font-semibold leading-6">
                 A evolução que antes era apenas medida,
                 <span className="block">
                   agora também pode ser <span className="text-emerald-300">visualizada.</span>
