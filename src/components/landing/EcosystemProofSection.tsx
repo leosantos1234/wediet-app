@@ -66,15 +66,27 @@ const StepCard = ({ step }: { step: Step }) => {
 };
 
 const EcosystemFlow = () => (
-  <section>
-    <div className="mx-auto max-w-3xl text-center">
-      <h2 className="text-2xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-3xl lg:text-[34px]">
-        Nutricionista, paciente e IA trabalhando juntos
-        <span className="block">por resultados reais e duradouros.</span>
-      </h2>
+  <section className="relative overflow-hidden rounded-[2rem] bg-[radial-gradient(circle_at_20%_15%,rgba(45,212,163,0.16),transparent_24rem),radial-gradient(circle_at_82%_10%,rgba(14,165,233,0.12),transparent_24rem),linear-gradient(135deg,#061827_0%,#08283A_52%,#053342_100%)] px-6 py-12 text-white shadow-[0_0_60px_rgba(45,212,163,0.14)] sm:px-8 lg:px-10">
+    <div className="pointer-events-none absolute inset-0">
+      <div className="absolute left-[7%] top-[24%] h-1 w-1 rounded-full bg-emerald-200 shadow-[0_0_20px_5px_rgba(46,230,166,.35)]" />
+      <div className="absolute right-[12%] top-[22%] h-1.5 w-1.5 rounded-full bg-cyan-100/70 shadow-[0_0_20px_4px_rgba(125,211,252,.25)]" />
     </div>
 
-    <div className="mt-10 grid gap-4 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] lg:items-center">
+    <div className="relative mx-auto max-w-5xl text-center">
+      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-semibold text-emerald-300">
+        <Sparkles className="h-4 w-4" />
+        Ecossistema NuDiet
+      </div>
+      <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
+        Nutricionista, paciente e IA trabalhando juntos
+      </h2>
+      <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-300 md:text-base">
+        Um fluxo conectado para transformar dados clínicos em acompanhamento claro, decisões melhores
+        e pacientes mais engajados.
+      </p>
+    </div>
+
+    <div className="relative mt-10 grid gap-4 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] lg:items-center">
       {steps.map((step, index) => (
         <div key={step.title} className="contents">
           <StepCard step={step} />
