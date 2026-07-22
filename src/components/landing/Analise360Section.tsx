@@ -66,16 +66,16 @@ const BodyMock = () => (
     </div>
 
     <div className="mt-3 grid gap-3 lg:grid-cols-[0.9fr_1.1fr]">
-      <div className="relative flex min-h-[250px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.055] to-transparent">
-        <div className="relative h-[230px] w-[96px]">
+      <div className="relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.055] to-transparent">
+        <div className="relative h-[205px] w-[88px]">
           <div className="absolute left-1/2 top-2 h-12 w-12 -translate-x-1/2 rounded-full border border-emerald-300/50 bg-orange-200/40" />
-          <div className="absolute left-1/2 top-14 h-28 w-16 -translate-x-1/2 rounded-[40%_40%_28%_28%] border border-emerald-300/40 bg-orange-300/20" />
-          <div className="absolute left-[22px] top-[70px] h-28 w-6 rotate-6 rounded-full bg-orange-200/30" />
-          <div className="absolute right-[22px] top-[70px] h-28 w-6 -rotate-6 rounded-full bg-orange-200/30" />
-          <div className="absolute left-[30px] top-[152px] h-20 w-6 rounded-full bg-orange-200/30" />
-          <div className="absolute right-[30px] top-[152px] h-20 w-6 rounded-full bg-orange-200/30" />
+          <div className="absolute left-1/2 top-14 h-24 w-14 -translate-x-1/2 rounded-[40%_40%_28%_28%] border border-emerald-300/40 bg-orange-300/20" />
+          <div className="absolute left-[20px] top-[66px] h-24 w-5 rotate-6 rounded-full bg-orange-200/30" />
+          <div className="absolute right-[20px] top-[66px] h-24 w-5 -rotate-6 rounded-full bg-orange-200/30" />
+          <div className="absolute left-[28px] top-[140px] h-16 w-5 rounded-full bg-orange-200/30" />
+          <div className="absolute right-[28px] top-[140px] h-16 w-5 rounded-full bg-orange-200/30" />
           <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-emerald-300/60" />
-          {[42, 94, 158, 214].map((top) => (
+          {[38, 84, 142, 192].map((top) => (
             <div
               key={top}
               className="absolute left-0 right-0 border-t border-dashed border-slate-500/50"
@@ -110,7 +110,7 @@ const Chart = () => (
         -3,2%
       </span>
     </div>
-    <svg viewBox="0 0 360 160" className="mt-3 h-24 w-full" aria-hidden="true">
+    <svg viewBox="0 0 360 160" className="mt-2 h-20 w-full" aria-hidden="true">
       <defs>
         <linearGradient id="analise360Chart" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#2dd4bf" />
@@ -148,7 +148,7 @@ const Compare = () => (
         Sobrepor
       </span>
     </div>
-    <div className="mt-4 grid grid-cols-2 gap-3">
+    <div className="mt-3 grid grid-cols-2 gap-3">
       {["Inicial", "Atual"].map((label, index) => (
         <div
           key={label}
@@ -156,8 +156,8 @@ const Compare = () => (
             index === 1 ? "border-emerald-400" : "border-white/10"
           } bg-black/20`}
         >
-          <div className="flex h-20 items-end justify-center bg-gradient-to-b from-white/[0.06] to-transparent">
-            <div className="h-16 w-12 rounded-t-[45%] bg-orange-200/20" />
+          <div className="flex h-16 items-end justify-center bg-gradient-to-b from-white/[0.06] to-transparent">
+            <div className="h-12 w-10 rounded-t-[45%] bg-orange-200/20" />
           </div>
           <div className="border-t border-white/10 px-3 py-2 text-center">
             <p className={`text-xs font-semibold ${index === 1 ? "text-emerald-300" : "text-white"}`}>
@@ -172,7 +172,7 @@ const Compare = () => (
 );
 
 const Report = () => (
-  <div className="grid gap-3 rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-3.5 sm:grid-cols-[1fr_130px] sm:items-center">
+  <div className="grid gap-3 rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-3 sm:grid-cols-[1fr_120px] sm:items-center">
     <div>
       <p className="text-sm font-semibold text-white">Relatório profissional</p>
       <p className="mt-2 text-xs leading-5 text-slate-400">
@@ -183,7 +183,7 @@ const Report = () => (
         <FileText className="h-4 w-4 text-emerald-300" />
       </span>
     </div>
-    <div className="mx-auto h-20 w-32 rotate-3 rounded-lg bg-white p-3 shadow-2xl">
+    <div className="mx-auto h-16 w-28 rotate-3 rounded-lg bg-white p-2 shadow-2xl">
       <div className="h-2 w-20 rounded bg-slate-200" />
       <div className="mt-3 grid grid-cols-[42px_1fr] gap-3">
         <div className="h-16 rounded bg-emerald-100" />
@@ -201,17 +201,17 @@ const Analise360Section = () => {
   return (
     <section
       id="analise-360"
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_12%,rgba(45,212,163,0.16),transparent_26rem),radial-gradient(circle_at_86%_18%,rgba(14,165,233,0.12),transparent_28rem),linear-gradient(135deg,#061827_0%,#08283A_52%,#053342_100%)] py-7 text-white md:py-8"
+      className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_12%,rgba(45,212,163,0.16),transparent_26rem),radial-gradient(circle_at_86%_18%,rgba(14,165,233,0.12),transparent_28rem),linear-gradient(135deg,#061827_0%,#08283A_52%,#053342_100%)] py-5 text-white md:py-6"
     >
       <div className="pointer-events-none absolute -right-48 top-12 h-[520px] w-[520px] rounded-full bg-emerald-400/10 blur-3xl" />
 
       <div className="relative mx-auto w-full max-w-[1500px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1680px]">
-        <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
+        <div className="grid gap-5 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div>
             <div className="inline-flex rounded-full border border-emerald-400/40 bg-emerald-400/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
               Avaliação corporal inteligente
             </div>
-            <h2 className="mt-4 text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-[44px] md:text-[50px]">
+            <h2 className="mt-3 text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-[42px] md:text-[46px]">
               Conheça a
               <span className="block bg-gradient-to-r from-emerald-300 to-lime-300 bg-clip-text text-transparent">
                 Análise 360.
@@ -226,7 +226,7 @@ const Analise360Section = () => {
               e ao plano alimentar.
             </p>
 
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {benefits.map(({ icon: Icon, title, text }) => (
                 <div key={title} className="flex gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10">
@@ -240,7 +240,7 @@ const Analise360Section = () => {
               ))}
             </div>
 
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
               <a
                 href="/#pricing"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5"
@@ -255,7 +255,7 @@ const Analise360Section = () => {
                 Ver exemplo de análise
               </a>
             </div>
-            <div className="mt-5 flex items-center gap-2 text-sm text-slate-400">
+            <div className="mt-4 flex items-center gap-2 text-sm text-slate-400">
               <CheckCircle2 className="h-4 w-4 text-emerald-300" />
               Seguro, rápido e 100% integrado ao NuDiet
             </div>
@@ -271,8 +271,8 @@ const Analise360Section = () => {
           </div>
         </div>
 
-        <div className="mt-5 rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-3.5 sm:p-4">
-          <div className="grid gap-4 lg:grid-cols-[1.2fr_repeat(4,1fr)] lg:items-center">
+        <div className="mt-3 rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-3 sm:p-3.5">
+          <div className="grid gap-3 lg:grid-cols-[1.2fr_repeat(4,1fr)] lg:items-center">
             <div className="flex items-center gap-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10">
                 <Sparkles className="h-5 w-5 text-emerald-300" />
