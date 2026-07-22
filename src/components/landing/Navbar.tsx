@@ -17,34 +17,34 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#061827]/85 text-white backdrop-blur-xl">
-      <div className="container flex items-center justify-between h-16">
+      <div className="mx-auto flex h-16 w-full max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8 2xl:max-w-[1680px]">
         <a
           href="#"
-          className="inline-flex items-center gap-2 text-2xl font-extrabold text-white"
+          className="inline-flex items-center gap-2 text-[26px] font-extrabold leading-none text-white"
         >
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-300/10 text-emerald-300">
             <Leaf className="h-4 w-4" />
           </span>
-          Nu<span className="text-emerald-300">Diet</span>
+          <span>Nu<span className="text-emerald-300">Diet</span></span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-7 lg:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-slate-300 transition-colors hover:text-white"
+              className="text-[15px] font-medium text-slate-300 transition-colors hover:text-white"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-3">
-          <Button asChild variant="ghost" size="sm" className="text-slate-200 hover:bg-white/10 hover:text-white">
+        <div className="hidden md:flex items-center gap-4">
+          <Button asChild variant="outline" size="sm" className="h-10 rounded-full border-white/20 bg-white/5 px-5 font-bold text-white hover:bg-white/12 hover:text-white">
             <a href="https://app.nudiet.com.br/login">Entrar</a>
           </Button>
-          <Button asChild size="sm" className="rounded-full bg-emerald-400 font-bold text-emerald-950 hover:bg-emerald-300">
+          <Button asChild size="sm" className="h-11 rounded-full bg-emerald-400 px-6 text-[15px] font-extrabold text-emerald-950 shadow-[0_0_28px_rgba(52,211,153,0.24)] hover:bg-emerald-300">
             <a href="/#pricing">Experimentar grátis</a>
           </Button>
         </div>
@@ -62,21 +62,21 @@ const Navbar = () => {
             exit={{ height: 0, opacity: 0 }}
             className="md:hidden overflow-hidden border-b border-white/10 bg-[#061827]"
           >
-            <div className="container py-4 flex flex-col gap-3">
+            <div className="mx-auto flex w-full max-w-[1500px] flex-col gap-3 px-4 py-4 sm:px-6 lg:px-8">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="py-2 text-sm text-slate-300"
+                  className="py-2 text-base font-medium text-slate-300"
                 >
                   {link.label}
                 </a>
               ))}
-              <Button asChild variant="ghost" size="sm" className="w-full text-slate-200 hover:bg-white/10 hover:text-white">
+              <Button asChild variant="outline" size="sm" className="w-full rounded-full border-white/20 bg-white/5 font-bold text-white hover:bg-white/12 hover:text-white">
                 <a href="https://app.nudiet.com.br/login">Entrar</a>
               </Button>
-              <Button asChild size="sm" className="w-full mt-2 rounded-full bg-emerald-400 font-bold text-emerald-950 hover:bg-emerald-300">
+              <Button asChild size="sm" className="mt-2 w-full rounded-full bg-emerald-400 font-extrabold text-emerald-950 hover:bg-emerald-300">
                 <a href="/#pricing">Experimentar grátis</a>
               </Button>
             </div>
