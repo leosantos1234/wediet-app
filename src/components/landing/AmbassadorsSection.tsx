@@ -19,7 +19,7 @@ const ambassadorHighlights = [
   {
     icon: CheckCircle2,
     title: "Indicações ativas contam",
-    description: "O benefício considera profissionais indicados que estejam ativos e adimplentes.",
+    description: "A indicação conta quando o colega também fecha o plano Premium e permanece adimplente.",
   },
   {
     icon: BadgePercent,
@@ -90,7 +90,8 @@ export default function AmbassadorsSection() {
                   </div>
 
                   <div className="space-y-2 rounded-2xl border bg-muted/30 p-4 text-sm leading-relaxed text-muted-foreground">
-                    <p>As indicações precisam estar com plano pago ativo e adimplente.</p>
+                    <p>Para participar, o embaixador precisa estar com o plano Premium ativo e adimplente.</p>
+                    <p>Para gerar desconto, o profissional indicado também precisa fechar o plano Premium.</p>
                     <p>Não há comissão em dinheiro; o benefício é desconto na assinatura.</p>
                     <p>Cancelamentos, inadimplência ou contas duplicadas podem invalidar o benefício.</p>
                   </div>
@@ -122,8 +123,9 @@ export default function AmbassadorsSection() {
         </div>
 
         <p className="mx-auto mt-8 max-w-6xl rounded-2xl border border-primary/15 bg-primary/5 px-5 py-4 text-sm leading-relaxed text-primary/90">
-          Benefício disponível para assinantes ativos dos planos pagos. Não há comissão em dinheiro:
-          o programa gera desconto na assinatura conforme as regras vigentes.
+          Benefício disponível para assinantes ativos do plano Premium. Para conceder desconto,
+          a indicação também precisa fechar o plano Premium. Não há comissão em dinheiro: o programa
+          gera desconto na assinatura conforme as regras vigentes.
         </p>
       </div>
     </section>
