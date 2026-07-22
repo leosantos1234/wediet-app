@@ -63,57 +63,57 @@ const recentActivities = [
 
 const HeroPremiumSection = () => {
   return (
-    <section className="relative min-h-[calc(100vh-64px)] overflow-hidden bg-[radial-gradient(circle_at_78%_20%,rgba(27,219,167,0.22),transparent_28%),radial-gradient(circle_at_8%_76%,rgba(17,120,135,0.22),transparent_30%),linear-gradient(135deg,#061827_0%,#08283A_54%,#053342_100%)] pt-16 text-white md:pt-20">
+    <section className="relative min-h-[calc(100vh-64px)] overflow-hidden bg-[radial-gradient(circle_at_78%_20%,rgba(27,219,167,0.22),transparent_28%),radial-gradient(circle_at_8%_76%,rgba(17,120,135,0.22),transparent_30%),linear-gradient(135deg,#061827_0%,#08283A_54%,#053342_100%)] pt-12 text-white md:pt-14">
       <div className="pointer-events-none absolute inset-0 opacity-60">
         <div className="absolute left-[7%] top-[22%] h-1 w-1 rounded-full bg-emerald-200 shadow-[0_0_20px_5px_rgba(46,230,166,.35)]" />
         <div className="absolute right-[12%] top-[14%] h-1.5 w-1.5 rounded-full bg-cyan-100/70 shadow-[0_0_20px_4px_rgba(125,211,252,.25)]" />
         <div className="absolute bottom-[18%] left-[46%] h-1 w-1 rounded-full bg-emerald-200/60" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1500px] px-4 pb-8 sm:px-6 lg:px-8 2xl:max-w-[1680px]">
-        <div className="grid items-center gap-8 lg:grid-cols-[0.88fr_1.12fr] xl:gap-10 2xl:grid-cols-[0.82fr_1.18fr]">
+      <div className="relative mx-auto w-full max-w-[1440px] px-4 pb-6 sm:px-6 lg:px-8 2xl:max-w-[1580px]">
+        <div className="grid items-center gap-6 lg:grid-cols-[0.9fr_1.1fr] xl:gap-8 2xl:grid-cols-[0.84fr_1.16fr]">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="relative z-10 max-w-[660px] py-4 md:py-6 xl:max-w-[700px]"
+            className="relative z-10 max-w-[620px] py-3 md:py-4 xl:max-w-[650px]"
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/30 bg-emerald-300/5 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-emerald-300">
               <span className="h-1.5 w-1.5 rounded-full bg-[#2ee6a6] shadow-[0_0_12px_#2ee6a6]" />
               Plataforma clínica inteligente
             </div>
 
-            <h1 className="mt-6 max-w-[660px] text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-[64px] 2xl:text-[72px]">
+            <h1 className="mt-5 max-w-[620px] text-4xl font-black leading-[1.03] tracking-tight text-white sm:text-[44px] lg:text-[56px] 2xl:text-[64px]">
               A plataforma completa para a nova{" "}
               <span className="bg-gradient-to-r from-emerald-300 to-green-400 bg-clip-text text-transparent">
                 nutrição clínica.
               </span>
             </h1>
 
-            <p className="mt-5 max-w-[560px] text-base leading-8 text-slate-300 sm:text-lg">
+            <p className="mt-4 max-w-[540px] text-base leading-7 text-slate-300">
               Gestão de pacientes, planos alimentares inteligentes, evolução clínica com IA e
               acompanhamento em tempo real. Mais produtividade, melhores resultados e pacientes mais
               engajados.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
                 href="/#pricing"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-green-400 px-6 py-4 text-sm font-black text-emerald-950 shadow-[0_0_40px_rgba(35,220,153,0.18)] transition hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-green-400 px-5 py-3.5 text-sm font-black text-emerald-950 shadow-[0_0_40px_rgba(35,220,153,0.18)] transition hover:-translate-y-0.5"
               >
                 Experimentar grátis
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="#product"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-300/30 bg-white/[0.035] px-6 py-4 text-sm font-bold text-white transition hover:border-emerald-300/60 hover:bg-white/[0.06]"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-300/30 bg-white/[0.035] px-5 py-3.5 text-sm font-bold text-white transition hover:border-emerald-300/60 hover:bg-white/[0.06]"
               >
                 Conhecer a plataforma
                 <ChevronRight className="h-4 w-4 text-emerald-300" />
               </a>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-4">
+            <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-4">
               {benefits.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-start gap-2.5">
                   <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-emerald-300/20 bg-emerald-300/5">
@@ -145,18 +145,18 @@ const HeroPremiumSection = () => {
 const MetricCard = ({ label, value, trend }: { label: string; value: string; trend: string }) => (
   <div className="rounded-xl border border-white/10 bg-white/[0.045] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
     <p className="text-[9px] font-medium text-slate-400">{label}</p>
-    <p className="mt-1 text-xl font-black tracking-tight text-white">{value}</p>
+    <p className="mt-1 text-lg font-black tracking-tight text-white">{value}</p>
     <p className="mt-1 text-[8px] font-semibold text-emerald-300">{trend}</p>
   </div>
 );
 
 const MiniChart = () => (
-  <div className="relative h-32 overflow-hidden rounded-xl border border-white/10 bg-[#0a2332] p-3">
+  <div className="relative h-28 overflow-hidden rounded-xl border border-white/10 bg-[#0a2332] p-3">
     <div className="flex items-center justify-between">
       <span className="text-[9px] font-semibold text-slate-300">Evolução dos pacientes</span>
       <span className="rounded-full bg-emerald-400/10 px-2 py-1 text-[8px] text-emerald-300">+8,4%</span>
     </div>
-    <svg viewBox="0 0 320 96" className="mt-2 h-20 w-full" aria-hidden="true">
+    <svg viewBox="0 0 320 96" className="mt-2 h-16 w-full" aria-hidden="true">
       <defs>
         <linearGradient id="heroChartFill" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#2ee6a6" stopOpacity="0.28" />
@@ -172,12 +172,12 @@ const MiniChart = () => (
 );
 
 const LaptopMockup = () => (
-  <div className="relative mx-auto w-full max-w-[720px] xl:max-w-[780px] 2xl:max-w-[860px]">
+  <div className="relative mx-auto w-full max-w-[650px] xl:max-w-[720px] 2xl:max-w-[780px]">
     <div className="absolute -inset-8 rounded-full bg-emerald-400/10 blur-3xl" />
     <div className="relative rounded-[26px] border border-white/15 bg-[#080d13] p-2.5 shadow-[0_30px_80px_rgba(0,0,0,0.34)]">
       <div className="overflow-hidden rounded-[20px] border border-white/10 bg-[#071b28]">
-        <div className="flex h-[350px] sm:h-[405px] 2xl:h-[440px]">
-          <aside className="hidden w-[132px] shrink-0 border-r border-white/5 bg-[#082334] p-3 sm:block 2xl:w-[148px] 2xl:p-4">
+        <div className="flex h-[310px] sm:h-[355px] 2xl:h-[390px]">
+          <aside className="hidden w-[118px] shrink-0 border-r border-white/5 bg-[#082334] p-3 sm:block 2xl:w-[132px] 2xl:p-4">
             <div className="mb-5 flex items-center gap-2 text-[10px] font-black text-white">
               <Leaf className="h-3.5 w-3.5 text-emerald-300" />
               <span>NuDiet</span>
@@ -195,8 +195,8 @@ const LaptopMockup = () => (
             ))}
           </aside>
 
-          <div className="min-w-0 flex-1 p-4 sm:p-5">
-            <div className="mb-4 flex items-start justify-between">
+          <div className="min-w-0 flex-1 p-3 sm:p-4">
+            <div className="mb-3 flex items-start justify-between">
               <div>
                 <p className="text-[9px] text-slate-400">Olá, profissional</p>
                 <h3 className="text-base font-bold text-white">Resumo da clínica</h3>
@@ -241,7 +241,7 @@ const LaptopMockup = () => (
 );
 
 const PhoneMockup = () => (
-  <div className="absolute bottom-[-14px] right-[-4px] z-20 w-[158px] rounded-[30px] border-[5px] border-[#0b1117] bg-[#071d2a] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.34)] sm:right-2 sm:w-[188px] lg:right-[-8px]">
+  <div className="absolute bottom-[-10px] right-0 z-20 w-[138px] rounded-[26px] border-[5px] border-[#0b1117] bg-[#071d2a] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.34)] sm:right-2 sm:w-[164px] lg:right-[-4px]">
     <div className="mx-auto mb-2 h-1.5 w-16 rounded-full bg-black/60" />
     <div className="rounded-[22px] bg-gradient-to-b from-[#082536] to-[#061a27] p-3">
       <div className="flex items-center justify-between">
@@ -252,14 +252,14 @@ const PhoneMockup = () => (
         <span className="h-7 w-7 rounded-full bg-emerald-300/20" />
       </div>
 
-      <div className="mx-auto mt-4 grid h-24 w-24 place-items-center rounded-full border-[7px] border-emerald-300/20 ring-4 ring-emerald-300/10">
+      <div className="mx-auto mt-3 grid h-20 w-20 place-items-center rounded-full border-[6px] border-emerald-300/20 ring-4 ring-emerald-300/10 sm:h-24 sm:w-24">
         <div className="text-center">
-          <p className="text-2xl font-black text-emerald-300">76%</p>
+          <p className="text-xl font-black text-emerald-300 sm:text-2xl">76%</p>
           <p className="text-[7px] text-slate-400">da meta</p>
         </div>
       </div>
 
-      <p className="mt-4 text-[9px] font-semibold">Seu plano de hoje</p>
+      <p className="mt-3 text-[9px] font-semibold">Seu plano de hoje</p>
       <div className="mt-2 space-y-2">
         {meals.map(([meal, kcal], index) => (
           <div key={meal} className="flex items-center justify-between text-[8px]">
@@ -276,7 +276,7 @@ const PhoneMockup = () => (
         ))}
       </div>
 
-      <div className="mt-4 grid grid-cols-4 gap-1 border-t border-white/10 pt-2 text-[7px] text-slate-500">
+      <div className="mt-3 grid grid-cols-4 gap-1 border-t border-white/10 pt-2 text-[7px] text-slate-500">
         {[
           [Home, "Início"],
           [Utensils, "Plano"],
@@ -297,7 +297,7 @@ const PhoneMockup = () => (
 );
 
 const TrustStrip = () => (
-  <div className="relative z-20 mt-8 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] backdrop-blur-xl md:mt-12">
+  <div className="relative z-20 mt-6 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] backdrop-blur-xl md:mt-8">
     <div className="grid md:grid-cols-[1.1fr_4fr]">
       <div className="border-b border-white/10 px-6 py-5 md:border-b-0 md:border-r">
         <p className="max-w-[240px] text-sm font-extrabold leading-5 text-white">
