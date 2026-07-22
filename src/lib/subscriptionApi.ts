@@ -76,7 +76,7 @@ async function apiRequestWithFallback<T>(paths: string[], init?: RequestInit): P
     }
   }
 
-  throw new Error(lastError?.message ?? "Nao foi possivel conectar a API.");
+  throw new Error(lastError?.message ?? "Não foi possível conectar à API.");
 }
 
 export async function getPlans(): Promise<Plan[]> {

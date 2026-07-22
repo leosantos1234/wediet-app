@@ -42,7 +42,7 @@ const PricingSection = () => {
             Escolha o plano certo para o seu momento
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Planos e <span className="text-gradient">Precos</span>
+            Planos e <span className="text-gradient">Preços</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
             Compare os recursos e comece pelo plano que faz mais sentido para sua rotina.
@@ -78,7 +78,7 @@ const PricingSection = () => {
 
         {plansQuery.isError && (
           <div className="mx-auto max-w-2xl rounded-3xl border border-destructive/20 bg-destructive/5 p-6 text-center text-sm text-destructive">
-            Nao foi possivel carregar os planos neste momento.
+            Não foi possível carregar os planos neste momento.
           </div>
         )}
 

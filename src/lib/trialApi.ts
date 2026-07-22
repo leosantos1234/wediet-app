@@ -49,7 +49,7 @@ export const signupTrialFree = async (
       const detail =
         typeof body?.detail === "string"
           ? body.detail
-          : "Nao foi possivel criar sua conta de teste.";
+          : "Não foi possível criar sua conta de teste.";
       throw new Error(detail);
     }
 
@@ -57,7 +57,7 @@ export const signupTrialFree = async (
   } catch (error) {
     if (error instanceof DOMException && error.name === "AbortError") {
       throw new Error(
-        "A criacao da conta demorou demais para responder. Tente novamente em alguns segundos."
+        "A criação da conta demorou demais para responder. Tente novamente em alguns segundos."
       );
     }
     throw error;

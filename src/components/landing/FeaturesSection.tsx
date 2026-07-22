@@ -10,7 +10,7 @@ const features = [
   },
   {
     icon: Mic,
-    title: "Transcricao de consultas com IA",
+    title: "Transcrição de consultas com IA",
     description:
       "Automaticamente transforme atendimentos em registros organizados, sem perder o contexto.",
   },
@@ -18,25 +18,25 @@ const features = [
     icon: BellRing,
     title: "Follow-up automatizado",
     description:
-      "Lembretes, retornos e reativacao de pacientes sem depender de controles manuais.",
+      "Lembretes, retornos e reativação de pacientes sem depender de controles manuais.",
   },
   {
     icon: Utensils,
     title: "Planos alimentares personalizados",
     description:
-      "Crie orientacoes mais rapidas e consistentes, com a flexibilidade que o consultorio precisa.",
+      "Crie orientações mais rápidas e consistentes, com a flexibilidade que o consultório precisa.",
   },
   {
     icon: Trophy,
-    title: "Desafios e gamificacao",
+    title: "Desafios e gamificação",
     description:
-      "Recursos para engajar pacientes e aumentar a adesao ao tratamento.",
+      "Recursos para engajar pacientes e aumentar a adesão ao tratamento.",
   },
   {
     icon: CalendarCheck,
     title: "Agenda integrada ao Google Agenda",
     description:
-      "Organize consultas com sincronizacao direta e menos chance de conflitos de horario.",
+      "Organize consultas com sincronização direta e menos chance de conflitos de horário.",
   },
 ];
 
@@ -55,7 +55,7 @@ const FeaturesSection = () => {
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Um conjunto de ferramentas pensado para nutricionistas que querem mais agilidade,
-            controle e conversao.
+            controle e conversão.
           </p>
         </motion.div>
 

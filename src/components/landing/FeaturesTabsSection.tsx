@@ -32,12 +32,12 @@ const tabs = [
     icon: Sparkles,
     title: "Veja por que o NuDiet se destaca:",
     items: [
-      { icon: MessageSquare, text: "Integracao com WhatsApp" },
+      { icon: MessageSquare, text: "Integração com WhatsApp" },
       { icon: Bot, text: "NuPilot, seu copiloto de consultas" },
       { icon: ClipboardList, text: "Grupo de Acompanhamento para engajar pacientes" },
       { icon: Palette, text: "Templates prontos para editar" },
-      { icon: Globe, text: "Apareca na busca por nutricionistas" },
-      { icon: CalendarCheck, text: "Conexao com o Google Agenda" },
+      { icon: Globe, text: "Apareça na busca por nutricionistas" },
+      { icon: CalendarCheck, text: "Conexão com o Google Agenda" },
     ],
   },
   {
@@ -47,38 +47,38 @@ const tabs = [
     title: "Ferramentas precisas para o atendimento nutricional",
     items: [
       { icon: FileText, text: "Planos alimentares calculados ou livres" },
-      { icon: Bot, text: "Transcricao de consultas com IA" },
-      { icon: ShieldCheck, text: "Interpretacao de exames e apoio clinico" },
-      { icon: ClipboardList, text: "Questionario pre-consulta e anamnese" },
-      { icon: Sparkles, text: "Prescricoes de suplementos inteligentes" },
-      { icon: Video, text: "Videoconferencia integrada" },
+      { icon: Bot, text: "Transcrição de consultas com IA" },
+      { icon: ShieldCheck, text: "Interpretação de exames e apoio clínico" },
+      { icon: ClipboardList, text: "Questionário pré-consulta e anamnese" },
+      { icon: Sparkles, text: "Prescrições de suplementos inteligentes" },
+      { icon: Video, text: "Videoconferência integrada" },
     ],
   },
   {
     id: "fidelizacao",
-    label: "Fidelizacao",
+    label: "Fidelização",
     icon: Heart,
     title: "Aplicativo do paciente para motivar e fidelizar",
     items: [
       { icon: Apple, text: "Plano alimentar e lista de compras" },
       { icon: Trophy, text: "Desafios e metas gamificadas" },
       { icon: Smartphone, text: "Agendamento de consultas pelo app" },
-      { icon: Droplets, text: "Lembrete de hidratacao personalizado" },
-      { icon: LineChart, text: "Graficos de acompanhamento da evolucao" },
-      { icon: Bell, text: "Follow-up automatico de pacientes" },
+      { icon: Droplets, text: "Lembrete de hidratação personalizado" },
+      { icon: LineChart, text: "Gráficos de acompanhamento da evolução" },
+      { icon: Bell, text: "Follow-up automático de pacientes" },
     ],
   },
   {
     id: "gestao",
-    label: "Gestao",
+    label: "Gestão",
     icon: BarChart3,
-    title: "Gestao completa para o sucesso do seu consultorio",
+    title: "Gestão completa para o sucesso do seu consultório",
     items: [
-      { icon: Users, text: "Captacao automatica de leads" },
-      { icon: CalendarCheck, text: "Agenda com marcacao online" },
-      { icon: TrendingUp, text: "Area de controle financeiro" },
-      { icon: Globe, text: "Site profissional para captacao" },
-      { icon: FileText, text: "Relatorios de acompanhamento" },
+      { icon: Users, text: "Captação automática de leads" },
+      { icon: CalendarCheck, text: "Agenda com marcação online" },
+      { icon: TrendingUp, text: "Área de controle financeiro" },
+      { icon: Globe, text: "Site profissional para captação" },
+      { icon: FileText, text: "Relatórios de acompanhamento" },
       { icon: ShoppingBag, text: "Ferramentas de marketing integradas" },
     ],
   },
@@ -98,7 +98,7 @@ const FeaturesTabsSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Conheca nossas <span className="text-gradient">principais ferramentas</span>
+            Conheça nossas <span className="text-gradient">principais ferramentas</span>
           </h2>
         </motion.div>
 

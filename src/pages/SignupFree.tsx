@@ -105,11 +105,11 @@ const SignupFree = () => {
 
       if (isPaidPlan) {
         if (!checkoutPlanId) {
-          throw new Error("Nao foi possivel iniciar o checkout deste plano.");
+          throw new Error("Não foi possível iniciar o checkout deste plano.");
         }
 
         if (!created.user_id) {
-          throw new Error("Nao foi possivel identificar a conta criada para o checkout.");
+          throw new Error("Não foi possível identificar a conta criada para o checkout.");
         }
 
         const checkout = await createCheckout(created.user_id, checkoutPlanId, billingPeriod);
@@ -141,7 +141,7 @@ const SignupFree = () => {
             Voltar aos planos
           </button>
           <div className="inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary">
-            {isPaidPlan ? `Plano escolhido: ${planLabel}` : "Sem cartao de credito"}
+            {isPaidPlan ? `Plano escolhido: ${planLabel}` : "Sem cartão de crédito"}
           </div>
         </div>
         <h1 className="mt-4 text-3xl font-extrabold">
@@ -149,8 +149,8 @@ const SignupFree = () => {
         </h1>
         <p className="mt-2 text-muted-foreground">
           {isPaidPlan
-            ? "Preencha seus dados para criar a conta e seguir direto para o pagamento com cartao de credito."
-            : "Preencha os dados para criar sua conta de teste por 30 dias, sem custo e sem precisar de cartao."}
+            ? "Preencha seus dados para criar a conta e seguir direto para o pagamento com cartão de crédito."
+            : "Preencha os dados para criar sua conta de teste por 30 dias, sem custo e sem precisar de cartão."}
         </p>
         {plansQuery.isLoading && isPaidPlan ? (
           <div className="mt-4 rounded-xl border border-border/60 bg-muted/40 p-4 text-sm text-muted-foreground">

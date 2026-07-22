@@ -18,37 +18,37 @@ export const BASE_FEATURES = [
   "App do paciente",
   "Agenda integrada ao Google Agenda",
   "Planos alimentares personalizados",
-  "Acompanhamento automatico",
-  "Follow-up automatico",
-  "Integracao com WhatsApp",
-  "Transcricao de consultas por IA",
-  "Relatorios avancados",
-  "Gestao de pacientes e evolucao",
+  "Acompanhamento automático",
+  "Follow-up automático",
+  "Integração com WhatsApp",
+  "Transcrição de consultas por IA",
+  "Relatórios avançados",
+  "Gestão de pacientes e evolução",
   "Templates de atendimento",
-  "Automacao da rotina",
-  "Modulo Wellness",
-  "Modulo Financeiro",
-  "Modulo Daily",
-  "Modulo de interpretacao de exames",
+  "Automação da rotina",
+  "Módulo Wellness",
+  "Módulo Financeiro",
+  "Módulo Daily",
+  "Módulo de interpretação de exames",
   "Grupo de Acompanhamento",
-  "Suporte padrao",
+  "Suporte padrão",
 ];
 
 export const PREMIUM_FEATURES = [
   "Tudo do Profissional",
-  "Analise 360",
+  "Análise 360",
   "NuPilot, seu copiloto de consultas",
   "Multi-profissional",
   "Branding personalizado",
-  "API e integracoes avancadas",
-  "Desafios e gamificacao",
-  "Suporte prioritario",
+  "API e integrações avançadas",
+  "Desafios e gamificação",
+  "Suporte prioritário",
 ];
 
 export const PLAN_COPY: Record<PlanCode, PlanCopy> = {
   gratis: {
-    description: "Experimente a plataforma completa sem cartao de credito.",
-    badge: "Sem cartao",
+    description: "Experimente a plataforma completa sem cartão de crédito.",
+    badge: "Sem cartão",
     cta: "Começar grátis",
     featured: false,
     tone: "from-emerald-500/10 via-card to-card",
@@ -61,7 +61,7 @@ export const PLAN_COPY: Record<PlanCode, PlanCopy> = {
     tone: "from-primary/10 via-card to-card",
   },
   premium: {
-    description: "Tudo do Profissional com recursos avancados para crescer com estrutura.",
+    description: "Tudo do Profissional com recursos avançados para crescer com estrutura.",
     badge: "Mais completo",
     cta: "Assinar agora",
     featured: false,
@@ -70,12 +70,12 @@ export const PLAN_COPY: Record<PlanCode, PlanCopy> = {
 };
 
 export const FEATURE_FLAGS = {
-  analise360_fotos: "Analise 360 - Fotos e marcacoes",
-  analise360_foto: "Analise 360 - Analise por foto",
+  analise360_fotos: "Análise 360 - Fotos e marcações",
+  analise360_foto: "Análise 360 - Análise por foto",
   nupilot: "NuPilot, seu copiloto de consultas",
-  wellness_passos: "API e integracoes avancadas - Passos / Atividade",
-  wellness_sono: "API e integracoes avancadas - Sono",
-  comunidade: "Desafios e gamificacao - Comunidade",
+  wellness_passos: "API e integrações avançadas - Passos / Atividade",
+  wellness_sono: "API e integrações avançadas - Sono",
+  comunidade: "Desafios e gamificação - Comunidade",
 } as const;
 
 export function normalizePlanCode(value: string | null | undefined): PlanCode {
@@ -97,13 +97,13 @@ export function formatPrice(value: number): string {
 }
 
 const PERIOD_LABELS: Record<BillingPeriod, string> = {
-  monthly: "/mes",
+  monthly: "/mês",
   semiannual: "semestral",
   annual: "anual",
 };
 
 const PERIOD_SUFFIX: Record<BillingPeriod, string> = {
-  monthly: "por mes",
+  monthly: "por mês",
   semiannual: "pagamento semestral",
   annual: "pagamento anual",
 };
@@ -115,9 +115,9 @@ const PERIOD_NOTICE: Record<BillingPeriod, string> = {
 };
 
 const PERIOD_RENEWAL: Record<BillingPeriod, string> = {
-  monthly: "Renovacao mensal automatica no cartao de credito.",
-  semiannual: "Renovacao automatica a cada 6 meses no cartao de credito.",
-  annual: "Renovacao automatica a cada 12 meses no cartao de credito.",
+  monthly: "Renovação mensal automática no cartão de crédito.",
+  semiannual: "Renovação automática a cada 6 meses no cartão de crédito.",
+  annual: "Renovação automática a cada 12 meses no cartão de crédito.",
 };
 
 export function getPlanDisplayInfo(plan: Plan, billingPeriod: BillingPeriod = "monthly") {
