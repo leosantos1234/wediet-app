@@ -2,6 +2,7 @@ import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroPremiumSection";
 import ToolsAndNuPilotSection from "@/components/landing/ToolsAndNuPilotSection";
 import EcosystemProofSection from "@/components/landing/EcosystemProofSection";
+import Analise360Section from "@/components/landing/Analise360Section";
 import PricingSection from "@/components/landing/PricingSection";
 import CtaSection from "@/components/landing/CtaSection";
 import FaqSection from "@/components/landing/FaqSection";
@@ -15,6 +16,7 @@ const Index = () => {
       <HeroSection />
       <ToolsAndNuPilotSection />
       <EcosystemProofSection />
+      <Analise360Section />
       <PricingSection />
       <CtaSection />
       <FaqSection />
