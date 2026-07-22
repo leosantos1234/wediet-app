@@ -3,8 +3,6 @@ import {
   BrainCircuit,
   ChartNoAxesCombined,
   ChevronRight,
-  ClipboardList,
-  HeartPulse,
   Salad,
   Smartphone,
   Sparkles,
@@ -67,11 +65,11 @@ const ToolCard = ({ item }: { item: ToolItem }) => {
   const Icon = item.icon;
 
   return (
-    <article className="group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_14px_50px_rgba(10,36,48,0.06)] transition duration-300 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-[0_20px_60px_rgba(6,24,34,0.10)]">
+    <article className="group rounded-2xl border border-white/10 bg-white p-5 text-slate-950 shadow-[0_18px_60px_rgba(0,0,0,0.16)] transition duration-300 hover:-translate-y-1 hover:border-emerald-200">
       <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition group-hover:bg-emerald-100">
         <Icon className="h-5 w-5" strokeWidth={1.8} />
       </div>
-      <h3 className="text-base font-semibold tracking-tight text-slate-950">{item.title}</h3>
+      <h3 className="text-base font-semibold tracking-tight">{item.title}</h3>
       <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
     </article>
   );
@@ -142,7 +140,7 @@ const Donut = () => (
 );
 
 const NuPilotPanel = () => (
-  <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#061923] via-[#082834] to-[#0d3841] px-6 py-8 shadow-[0_0_60px_rgba(45,212,163,0.16)] sm:px-8 lg:px-10 lg:py-10">
+  <section className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] px-6 py-8 shadow-[0_0_60px_rgba(45,212,163,0.16)] backdrop-blur sm:px-8 lg:px-10 lg:py-10">
     <div className="pointer-events-none absolute -right-32 -top-36 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl" />
     <div className="pointer-events-none absolute bottom-0 right-0 h-full w-1/2 opacity-20">
       <div className="absolute right-16 top-20 h-52 w-52 rounded-full border border-emerald-300/30" />
@@ -165,8 +163,8 @@ const NuPilotPanel = () => (
           </h3>
 
           <p className="mt-5 max-w-xl text-sm leading-7 text-slate-300">
-            O NuPilot é o copiloto inteligente que transforma dados clínicos em insights
-            práticos, economiza tempo e potencializa seus resultados.
+            O NuPilot é o copiloto inteligente que transforma dados clínicos em insights práticos,
+            economiza tempo e potencializa seus resultados.
           </p>
 
           <ul className="mt-6 space-y-3 text-sm text-slate-300">
@@ -210,8 +208,7 @@ const NuPilotPanel = () => (
               Insights NuPilot
             </div>
             <p className="mt-3 max-w-xl text-sm leading-6 text-slate-300">
-              3 pacientes precisam de atenção com base na queda de adesão observada nas últimas
-              duas semanas.
+              3 pacientes precisam de atenção com base na queda de adesão observada nas últimas duas semanas.
             </p>
             <button className="mt-4 rounded-lg border border-white/10 bg-white/[0.055] px-3 py-2 text-xs font-medium text-white transition hover:bg-white/10">
               Ver sugestões
@@ -235,16 +232,26 @@ const NuPilotPanel = () => (
 
 const ToolsAndNuPilotSection = () => {
   return (
-    <section id="features" className="bg-[#f6f8f6] py-16 sm:py-20">
+    <section
+      id="features"
+      className="bg-[radial-gradient(circle_at_20%_10%,rgba(45,212,163,0.16),transparent_26rem),radial-gradient(circle_at_82%_18%,rgba(14,165,233,0.12),transparent_28rem),linear-gradient(135deg,#061827_0%,#08283A_52%,#053342_100%)] py-16 text-white sm:py-20"
+    >
       <div className="mx-auto w-full max-w-[1500px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1680px]">
-        <header className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-3xl lg:text-[32px] xl:text-[34px]">
-            <span className="block whitespace-nowrap">Soluções completas para uma prática clínica</span>
-            <span className="block whitespace-nowrap">mais eficiente e centrada em resultados.</span>
+        <header className="mx-auto max-w-5xl text-center">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-semibold text-emerald-300">
+            <Sparkles className="h-4 w-4" />
+            Plataforma clínica completa
+          </div>
+          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
+            Soluções completas para uma prática clínica
+            <span className="block">mais eficiente e centrada em resultados.</span>
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-300 md:text-base">
+            Gestão, atendimento, acompanhamento e inteligência clínica em uma experiência única.
+          </p>
         </header>
 
-        <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {tools.map((item) => (
             <ToolCard key={item.title} item={item} />
           ))}
@@ -252,30 +259,6 @@ const ToolsAndNuPilotSection = () => {
 
         <div className="mt-6">
           <NuPilotPanel />
-        </div>
-
-        <div className="mt-8 grid gap-4 rounded-3xl border border-emerald-100 bg-emerald-50/70 p-5 sm:grid-cols-3">
-          <div className="flex items-center gap-3">
-            <HeartPulse className="h-5 w-5 text-emerald-600" />
-            <div>
-              <p className="text-sm font-semibold text-slate-900">Mais segurança clínica</p>
-              <p className="text-xs text-slate-600">Dados organizados para apoiar decisões melhores.</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <ClipboardList className="h-5 w-5 text-emerald-600" />
-            <div>
-              <p className="text-sm font-semibold text-slate-900">Mais produtividade</p>
-              <p className="text-xs text-slate-600">Menos trabalho operacional e mais foco no paciente.</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <Sparkles className="h-5 w-5 text-emerald-600" />
-            <div>
-              <p className="text-sm font-semibold text-slate-900">Uma experiência premium</p>
-              <p className="text-xs text-slate-600">Tecnologia clínica com comunicação clara e humana.</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
