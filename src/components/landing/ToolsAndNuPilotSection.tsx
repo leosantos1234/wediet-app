@@ -237,10 +237,10 @@ const ToolsAndNuPilotSection = () => {
   return (
     <section id="features" className="bg-[#f6f8f6] py-16 sm:py-20">
       <div className="mx-auto w-full max-w-[1500px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1680px]">
-        <header className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-3xl lg:text-[34px]">
-            Soluções completas para uma prática clínica
-            <span className="block">mais eficiente e centrada em resultados.</span>
+        <header className="mx-auto max-w-4xl text-center">
+          <h2 className="text-2xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-3xl lg:text-[32px] xl:text-[34px]">
+            <span className="block whitespace-nowrap">Soluções completas para uma prática clínica</span>
+            <span className="block whitespace-nowrap">mais eficiente e centrada em resultados.</span>
           </h2>
         </header>
 
