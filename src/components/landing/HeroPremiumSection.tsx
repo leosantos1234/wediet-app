@@ -63,7 +63,7 @@ const recentActivities = [
 
 const HeroPremiumSection = () => {
   return (
-    <section className="relative min-h-[calc(100vh-64px)] overflow-hidden bg-[radial-gradient(circle_at_78%_20%,rgba(27,219,167,0.22),transparent_28%),radial-gradient(circle_at_8%_76%,rgba(17,120,135,0.22),transparent_30%),linear-gradient(135deg,#061827_0%,#08283A_54%,#053342_100%)] pt-10 text-white md:pt-12">
+    <section className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_78%_20%,rgba(27,219,167,0.22),transparent_28%),radial-gradient(circle_at_8%_76%,rgba(17,120,135,0.22),transparent_30%),linear-gradient(135deg,#061827_0%,#08283A_54%,#053342_100%)] pt-20 text-white md:pt-24">
       <div className="pointer-events-none absolute inset-0 opacity-60">
         <div className="absolute left-[7%] top-[22%] h-1 w-1 rounded-full bg-emerald-200 shadow-[0_0_20px_5px_rgba(46,230,166,.35)]" />
         <div className="absolute right-[12%] top-[14%] h-1.5 w-1.5 rounded-full bg-cyan-100/70 shadow-[0_0_20px_4px_rgba(125,211,252,.25)]" />
