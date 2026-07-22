@@ -52,6 +52,52 @@ const Stat = ({ label, value, trend }: { label: string; value: string; trend: st
   </div>
 );
 
+const BodyPreview = ({ compact = false }: { compact?: boolean }) => (
+  <div className={`relative mx-auto ${compact ? "h-16 w-12" : "h-[205px] w-[112px]"}`}>
+    <svg viewBox="0 0 112 220" className="h-full w-full" aria-hidden="true">
+      <defs>
+        <linearGradient id="bodySkin" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#e0a56f" />
+          <stop offset="100%" stopColor="#9d6742" />
+        </linearGradient>
+        <linearGradient id="bodySuit" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#171d22" />
+          <stop offset="100%" stopColor="#06090d" />
+        </linearGradient>
+        <filter id="bodyGlow" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="0" stdDeviation="2.5" floodColor="#34d399" floodOpacity="0.45" />
+        </filter>
+      </defs>
+
+      <path d="M37 55 C33 73,27 93,20 125 C17 139,22 145,29 136 C36 116,41 93,47 72 Z" fill="url(#bodySkin)" opacity="0.9" />
+      <path d="M75 55 C79 73,85 93,92 125 C95 139,90 145,83 136 C76 116,71 93,65 72 Z" fill="url(#bodySkin)" opacity="0.9" />
+      <path d="M44 114 C40 134,38 157,35 196 C34 207,45 210,48 198 C51 165,54 139,56 119 Z" fill="url(#bodySkin)" />
+      <path d="M68 114 C72 134,74 157,77 196 C78 207,67 210,64 198 C61 165,58 139,56 119 Z" fill="url(#bodySkin)" />
+      <path d="M37 58 C40 45,47 38,56 38 C65 38,72 45,75 58 C78 80,77 102,70 121 C67 129,45 129,42 121 C35 102,34 80,37 58 Z" fill="url(#bodySkin)" />
+      <circle cx="56" cy="24" r="17" fill="url(#bodySkin)" />
+      <path d="M39 22 C42 7,54 3,67 10 C78 16,78 34,72 43 C68 31,65 23,56 22 C48 22,43 26,39 36 C37 31,37 26,39 22 Z" fill="#1a1716" />
+      <path d="M40 58 C47 52,65 52,72 58 L68 91 C65 96,47 96,44 91 Z" fill="url(#bodySuit)" />
+      <path d="M43 92 C51 96,61 96,69 92 L68 122 C63 128,49 128,44 122 Z" fill="url(#bodySuit)" />
+      <path d="M38 119 C44 125,50 126,55 122 L50 144 C44 146,36 142,34 135 Z" fill="#1b2025" />
+      <path d="M74 119 C68 125,62 126,57 122 L62 144 C68 146,76 142,78 135 Z" fill="#1b2025" />
+
+      <g stroke="#34d399" strokeWidth="1.8" opacity="0.95" filter="url(#bodyGlow)">
+        <path d="M24 61 L88 61" strokeDasharray="4 5" />
+        <path d="M18 98 L94 98" strokeDasharray="4 5" />
+        <path d="M22 139 L90 139" strokeDasharray="4 5" />
+        <path d="M30 184 L82 184" strokeDasharray="4 5" />
+        <path d="M56 42 L56 204" />
+      </g>
+      {[61, 98, 139, 184].map((y) => (
+        <circle key={y} cx="56" cy={y} r="4.5" fill="#061827" stroke="#6ee7b7" strokeWidth="3" />
+      ))}
+      {[32, 80].map((x) => (
+        <circle key={x} cx={x} cy="98" r="4" fill="#061827" stroke="#6ee7b7" strokeWidth="2.5" />
+      ))}
+    </svg>
+  </div>
+);
+
 const BodyMock = () => (
   <div className="rounded-[1.5rem] border border-white/10 bg-gradient-to-b from-[#0c2d3a] to-[#08202c] p-3.5 shadow-[0_28px_80px_rgba(0,0,0,0.28)]">
     <div className="grid gap-3 sm:grid-cols-2">
@@ -67,24 +113,7 @@ const BodyMock = () => (
 
     <div className="mt-3 grid gap-3 lg:grid-cols-[0.9fr_1.1fr]">
       <div className="relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.055] to-transparent">
-        <div className="relative h-[205px] w-[88px]">
-          <div className="absolute left-1/2 top-2 h-12 w-12 -translate-x-1/2 rounded-full border border-emerald-300/50 bg-orange-200/40" />
-          <div className="absolute left-1/2 top-14 h-24 w-14 -translate-x-1/2 rounded-[40%_40%_28%_28%] border border-emerald-300/40 bg-orange-300/20" />
-          <div className="absolute left-[20px] top-[66px] h-24 w-5 rotate-6 rounded-full bg-orange-200/30" />
-          <div className="absolute right-[20px] top-[66px] h-24 w-5 -rotate-6 rounded-full bg-orange-200/30" />
-          <div className="absolute left-[28px] top-[140px] h-16 w-5 rounded-full bg-orange-200/30" />
-          <div className="absolute right-[28px] top-[140px] h-16 w-5 rounded-full bg-orange-200/30" />
-          <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-emerald-300/60" />
-          {[38, 84, 142, 192].map((top) => (
-            <div
-              key={top}
-              className="absolute left-0 right-0 border-t border-dashed border-slate-500/50"
-              style={{ top }}
-            >
-              <span className="absolute left-1/2 top-[-5px] h-2.5 w-2.5 -translate-x-1/2 rounded-full border-2 border-emerald-200 bg-emerald-500" />
-            </div>
-          ))}
-        </div>
+        <BodyPreview />
       </div>
 
       <div className="space-y-2.5">
@@ -157,7 +186,7 @@ const Compare = () => (
           } bg-black/20`}
         >
           <div className="flex h-16 items-end justify-center bg-gradient-to-b from-white/[0.06] to-transparent">
-            <div className="h-12 w-10 rounded-t-[45%] bg-orange-200/20" />
+            <BodyPreview compact />
           </div>
           <div className="border-t border-white/10 px-3 py-2 text-center">
             <p className={`text-xs font-semibold ${index === 1 ? "text-emerald-300" : "text-white"}`}>
