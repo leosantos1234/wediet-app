@@ -70,7 +70,7 @@ const HeroPremiumSection = () => {
         <div className="absolute bottom-[18%] left-[46%] h-1 w-1 rounded-full bg-emerald-200/60" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1300px] px-4 pb-4 sm:px-6 lg:px-8 2xl:max-w-[1420px]">
+      <div className="relative mx-auto flex min-h-[calc(100vh-96px)] w-full max-w-[1300px] flex-col justify-between px-4 pb-6 sm:px-6 lg:px-8 2xl:max-w-[1420px]">
         <div className="grid items-center gap-5 lg:grid-cols-[0.88fr_1.12fr] xl:gap-6 2xl:grid-cols-[0.82fr_1.18fr]">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
