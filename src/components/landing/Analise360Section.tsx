@@ -69,11 +69,11 @@ const BodyMock = () => (
     </div>
 
     <div className="mt-3 grid gap-3 lg:grid-cols-[0.9fr_1.1fr]">
-      <div className="relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.055] to-transparent">
+      <div className="relative flex min-h-[250px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.055] to-transparent">
         <img
           src={analise360Frente}
           alt="Avaliação corporal frontal com pontos de medição"
-          className="h-[220px] w-full object-contain"
+          className="h-[250px] w-full object-cover object-center"
           loading="lazy"
         />
       </div>
@@ -150,11 +150,11 @@ const Compare = () => (
             index === 1 ? "border-emerald-400" : "border-white/10"
           } bg-black/20`}
         >
-          <div className="flex h-16 items-center justify-center bg-gradient-to-b from-white/[0.06] to-transparent">
+          <div className="flex h-24 items-center justify-center bg-gradient-to-b from-white/[0.06] to-transparent">
             <img
               src={item.image}
               alt={`Avaliação ${item.label.toLowerCase()} do paciente`}
-              className="h-full w-full object-contain"
+              className="h-full w-full object-cover object-center"
               loading="lazy"
             />
           </div>
@@ -171,7 +171,7 @@ const Compare = () => (
 );
 
 const Report = () => (
-  <div className="grid gap-3 rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-3 sm:grid-cols-[1fr_120px] sm:items-center">
+  <div className="grid gap-3 rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-3 sm:grid-cols-[1fr_170px] sm:items-center">
     <div>
       <p className="text-sm font-semibold text-white">Relatório profissional</p>
       <p className="mt-2 text-xs leading-5 text-slate-400">
@@ -182,7 +182,7 @@ const Report = () => (
         <FileText className="h-4 w-4 text-emerald-300" />
       </span>
     </div>
-    <div className="mx-auto h-16 w-28 rotate-3 overflow-hidden rounded-lg bg-white shadow-2xl">
+    <div className="mx-auto h-24 w-40 rotate-3 overflow-hidden rounded-lg bg-white shadow-2xl">
       <img
         src={analise360Relatorio}
         alt="Modelo de relatório profissional da Análise 360"
