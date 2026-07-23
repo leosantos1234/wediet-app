@@ -69,11 +69,11 @@ const BodyMock = () => (
     </div>
 
     <div className="mt-3 grid gap-3 lg:grid-cols-[0.9fr_1.1fr]">
-      <div className="relative flex min-h-[250px] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.055] to-transparent">
+      <div className="relative min-h-[250px] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.055] to-transparent">
         <img
           src={analise360Frente}
           alt="Avaliação corporal frontal com pontos de medição"
-          className="h-[250px] w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-cover object-center"
           loading="lazy"
         />
       </div>
