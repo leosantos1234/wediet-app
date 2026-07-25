@@ -177,25 +177,25 @@ const LaptopMockup = () => (
     <div className="relative rounded-[26px] border border-white/15 bg-[#080d13] p-2.5 shadow-[0_30px_80px_rgba(0,0,0,0.34)]">
       <div className="overflow-hidden rounded-[20px] border border-white/10 bg-[#071b28]">
         <div className="flex h-[245px] sm:h-[285px] 2xl:h-[315px]">
-          <aside className="hidden w-[98px] shrink-0 border-r border-white/5 bg-[#082334] p-2.5 sm:block 2xl:w-[112px] 2xl:p-3">
-            <div className="mb-5 flex items-center gap-2 text-[10px] font-black text-white">
+          <aside className="w-[42px] shrink-0 border-r border-white/5 bg-[#082334] p-1.5 sm:w-[98px] sm:p-2.5 2xl:w-[112px] 2xl:p-3">
+            <div className="mb-4 flex items-center justify-center gap-2 text-[10px] font-black text-white sm:mb-5 sm:justify-start">
               <Leaf className="h-3.5 w-3.5 text-emerald-300" />
-              <span>NuDiet</span>
+              <span className="hidden sm:inline">NuDiet</span>
             </div>
             {laptopMenu.map(({ icon: Icon, label, active }) => (
               <div
                 key={label}
-                className={`mb-1.5 flex items-center gap-2 rounded-lg px-2 py-2 text-[8px] ${
+                className={`mb-1.5 flex items-center justify-center gap-2 rounded-lg px-1 py-2 text-[8px] sm:justify-start sm:px-2 ${
                   active ? "bg-emerald-400/10 text-emerald-300" : "text-slate-400"
                 }`}
               >
                 <Icon className="h-3 w-3" />
-                {label}
+                <span className="hidden sm:inline">{label}</span>
               </div>
             ))}
           </aside>
 
-          <div className="min-w-0 flex-1 p-3">
+          <div className="min-w-0 flex-1 p-2.5 sm:p-3">
             <div className="mb-3 flex items-start justify-between">
               <div>
                 <p className="text-[9px] text-slate-400">Olá, profissional</p>
