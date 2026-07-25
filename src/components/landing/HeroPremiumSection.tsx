@@ -241,28 +241,28 @@ const LaptopMockup = () => (
 );
 
 const PhoneMockup = () => (
-  <div className="absolute bottom-[-6px] right-0 z-20 w-[112px] rounded-[22px] border-[4px] border-[#0b1117] bg-[#071d2a] p-1.5 shadow-[0_30px_80px_rgba(0,0,0,0.34)] sm:right-2 sm:w-[134px] lg:right-[-4px]">
-    <div className="mx-auto mb-1.5 h-1.5 w-14 rounded-full bg-black/60 sm:mb-2 sm:w-16" />
-    <div className="rounded-[20px] bg-gradient-to-b from-[#082536] to-[#061a27] p-2 sm:p-2.5">
+  <div className="absolute bottom-[-6px] right-0 z-20 w-[112px] rounded-[22px] border-[4px] border-[#0b1117] bg-[#071d2a] p-1 shadow-[0_30px_80px_rgba(0,0,0,0.34)] sm:right-2 sm:w-[134px] sm:p-1.5 lg:right-[-4px]">
+    <div className="mx-auto mb-1 h-1.5 w-14 rounded-full bg-black/60 sm:mb-2 sm:w-16" />
+    <div className="rounded-[20px] bg-gradient-to-b from-[#082536] to-[#061a27] p-1.5 sm:p-2.5">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-[8px] text-slate-400">Olá, paciente</p>
           <p className="text-[10px] font-bold">Seu progresso</p>
         </div>
-        <span className="h-7 w-7 rounded-full bg-emerald-300/20" />
+        <span className="h-5 w-5 rounded-full bg-emerald-300/20 sm:h-7 sm:w-7" />
       </div>
 
-      <div className="mx-auto mt-1.5 grid h-12 w-12 place-items-center rounded-full border-[4px] border-emerald-300/20 ring-2 ring-emerald-300/10 sm:mt-2 sm:h-16 sm:w-16 sm:border-[5px] sm:ring-4">
+      <div className="mx-auto mt-1 grid h-10 w-10 place-items-center rounded-full border-[4px] border-emerald-300/20 ring-2 ring-emerald-300/10 sm:mt-2 sm:h-16 sm:w-16 sm:border-[5px] sm:ring-4">
         <div className="text-center">
-          <p className="text-base font-black text-emerald-300 sm:text-lg">76%</p>
+          <p className="text-sm font-black text-emerald-300 sm:text-lg">76%</p>
           <p className="text-[7px] text-slate-400">da meta</p>
         </div>
       </div>
 
-      <p className="mt-1.5 text-[8px] font-semibold sm:mt-2">Seu plano de hoje</p>
-      <div className="mt-1.5 space-y-1 sm:mt-2 sm:space-y-1.5">
+      <p className="mt-1 text-[8px] font-semibold sm:mt-2">Seu plano de hoje</p>
+      <div className="mt-1 space-y-0.5 sm:mt-2 sm:space-y-1.5">
         {meals.map(([meal, kcal], index) => (
-          <div key={meal} className="flex items-center justify-between text-[8px]">
+          <div key={meal} className="flex items-center justify-between text-[7px] sm:text-[8px]">
             <span className="flex items-center gap-1.5 text-slate-300">
               <span
                 className={`h-2 w-2 rounded-full ${
@@ -276,7 +276,7 @@ const PhoneMockup = () => (
         ))}
       </div>
 
-      <div className="mt-1.5 grid grid-cols-4 gap-1 border-t border-white/10 pt-1.5 text-[7px] text-slate-500 sm:mt-2 sm:pt-2">
+      <div className="mt-1 grid grid-cols-4 gap-1 border-t border-white/10 pt-1 text-[7px] text-slate-500 sm:mt-2 sm:pt-2">
         {[
           [Home, "Início"],
           [Utensils, "Plano"],
@@ -286,7 +286,7 @@ const PhoneMockup = () => (
           const NavIcon = Icon as typeof Home;
           return (
             <div key={label as string} className="flex flex-col items-center gap-1">
-              <NavIcon className="h-3 w-3 text-emerald-300" />
+              <NavIcon className="h-2.5 w-2.5 text-emerald-300 sm:h-3 sm:w-3" />
               <span className="hidden sm:inline">{label as string}</span>
             </div>
           );
