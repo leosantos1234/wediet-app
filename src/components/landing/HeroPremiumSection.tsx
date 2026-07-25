@@ -63,14 +63,14 @@ const recentActivities = [
 
 const HeroPremiumSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_78%_20%,rgba(27,219,167,0.22),transparent_28%),radial-gradient(circle_at_8%_76%,rgba(17,120,135,0.22),transparent_30%),linear-gradient(135deg,#061827_0%,#08283A_54%,#053342_100%)] pt-20 text-white md:pt-24">
+    <section className="relative min-h-[min(100svh,820px)] overflow-hidden bg-[radial-gradient(circle_at_78%_20%,rgba(27,219,167,0.22),transparent_28%),radial-gradient(circle_at_8%_76%,rgba(17,120,135,0.22),transparent_30%),linear-gradient(135deg,#061827_0%,#08283A_54%,#053342_100%)] pt-20 text-white md:pt-24">
       <div className="pointer-events-none absolute inset-0 opacity-60">
         <div className="absolute left-[7%] top-[22%] h-1 w-1 rounded-full bg-emerald-200 shadow-[0_0_20px_5px_rgba(46,230,166,.35)]" />
         <div className="absolute right-[12%] top-[14%] h-1.5 w-1.5 rounded-full bg-cyan-100/70 shadow-[0_0_20px_4px_rgba(125,211,252,.25)]" />
         <div className="absolute bottom-[18%] left-[46%] h-1 w-1 rounded-full bg-emerald-200/60" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-96px)] w-full max-w-[1300px] flex-col justify-between px-4 pb-6 sm:px-6 lg:px-8 2xl:max-w-[1420px]">
+      <div className="relative mx-auto flex min-h-[min(calc(100svh-96px),700px)] w-full max-w-[1300px] flex-col justify-between px-4 pb-6 sm:px-6 lg:px-8 2xl:max-w-[1420px]">
         <div className="grid items-center gap-5 lg:grid-cols-[0.88fr_1.12fr] xl:gap-6 2xl:grid-cols-[0.82fr_1.18fr]">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
@@ -83,20 +83,20 @@ const HeroPremiumSection = () => {
               Plataforma clínica inteligente
             </div>
 
-            <h1 className="mt-4 max-w-[540px] text-4xl font-black leading-[1.03] tracking-tight text-white sm:text-[40px] lg:text-[44px] 2xl:text-[52px]">
+            <h1 className="mt-[17.6px] max-w-[540px] text-4xl font-black leading-[1.133] tracking-tight text-white sm:text-[40px] lg:text-[44px] 2xl:text-[52px]">
               A plataforma completa para a nova{" "}
               <span className="bg-gradient-to-r from-emerald-300 to-green-400 bg-clip-text text-transparent">
                 nutrição clínica.
               </span>
             </h1>
 
-            <p className="mt-3 max-w-[500px] text-[14px] leading-6 text-slate-300">
+            <p className="mt-[13.2px] max-w-[500px] text-[14px] leading-[26.4px] text-slate-300">
               Gestão de pacientes, planos alimentares inteligentes, evolução clínica com IA e
               acompanhamento em tempo real. Mais produtividade, melhores resultados e pacientes mais
               engajados.
             </p>
 
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-[17.6px] flex flex-col gap-[13.2px] sm:flex-row">
               <a
                 href="/#pricing"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-green-400 px-5 py-3 text-sm font-black text-emerald-950 shadow-[0_0_40px_rgba(35,220,153,0.18)] transition hover:-translate-y-0.5"
@@ -113,13 +113,13 @@ const HeroPremiumSection = () => {
               </a>
             </div>
 
-            <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-4">
+            <div className="mt-[17.6px] grid grid-cols-2 gap-x-[17.6px] gap-y-[13.2px] sm:grid-cols-4">
               {benefits.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-start gap-2.5">
+                <div key={label} className="flex items-start gap-[11px]">
                   <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-emerald-300/20 bg-emerald-300/5">
                     <Icon className="h-4 w-4 text-emerald-300" strokeWidth={1.8} />
                   </span>
-                  <span className="text-[11px] leading-4 text-slate-300">{label}</span>
+                  <span className="text-[11px] leading-[17.6px] text-slate-300">{label}</span>
                 </div>
               ))}
             </div>
@@ -241,9 +241,9 @@ const LaptopMockup = () => (
 );
 
 const PhoneMockup = () => (
-  <div className="absolute bottom-[-6px] right-0 z-20 w-[112px] rounded-[22px] border-[4px] border-[#0b1117] bg-[#071d2a] p-1.5 shadow-[0_30px_80px_rgba(0,0,0,0.34)] sm:right-2 sm:w-[134px] lg:right-[-4px]">
-    <div className="mx-auto mb-2 h-1.5 w-16 rounded-full bg-black/60" />
-    <div className="rounded-[20px] bg-gradient-to-b from-[#082536] to-[#061a27] p-2.5">
+  <div className="absolute bottom-[-4px] right-1 z-20 w-[84px] origin-bottom-right scale-[0.82] rounded-[18px] border-[3px] border-[#0b1117] bg-[#071d2a] p-1 shadow-[0_30px_80px_rgba(0,0,0,0.34)] sm:right-2 sm:w-[134px] sm:scale-100 sm:rounded-[22px] sm:border-[4px] sm:p-1.5 lg:right-[-4px]">
+    <div className="mx-auto mb-1.5 h-1 w-10 rounded-full bg-black/60 sm:mb-2 sm:h-1.5 sm:w-16" />
+    <div className="rounded-[16px] bg-gradient-to-b from-[#082536] to-[#061a27] p-1.5 sm:rounded-[20px] sm:p-2.5">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-[8px] text-slate-400">Olá, paciente</p>
